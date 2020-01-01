@@ -24,23 +24,111 @@ function isTouch() { return TempApp.touchDevice(); } // for touch device
 
 
 $(document).ready(function() {
-    // Хак для клика по ссылке на iOS
     if (isIOS()) {
         $(function(){$(document).on('touchend', 'a', $.noop)});
     }
-
-	// Запрет "отскока" страницы при клике по пустой ссылке с href="#"
 	$('[href="#"]').click(function(event) {
 		event.preventDefault();
 	});
 
-    // Inputmask.js
-    // $('[name=tel]').inputmask("+9(999)999 99 99",{ showMaskOnHover: false });
-    // formSubmit();
-
     checkOnResize();
 
+    $('.apartmetSlider').slick({
+        focusOnSelect: true,
+        nextArrow: '<span class="icon_next" />',
+        prevArrow: '<span class="icon_prev" />',
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    dots: true
+                }
+            }
+        ]
+    })
+
+    $('.collage_mob').slick({
+        focusOnSelect: true,
+        nextArrow: '<span class="icon_next" />',
+        prevArrow: '<span class="icon_prev" />',
+        dots: true,
+    })
+
+    $('.developerSlider').slick({
+        focusOnSelect: true,
+        dots: true,
+        nextArrow: '<span class="icon_next" />',
+        prevArrow: '<span class="icon_prev" />',
+    })
+
+    $('.stage__slider').slick({
+        dots: true,
+        nextArrow: '<span class="icon_next" />',
+        prevArrow: '<span class="icon_prev" />',
+    })
+
+
+    $('.optionsSlider').slick({
+        pauseOnHover: false,
+        pauseOnFocus: false,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        nextArrow: '<span class="icon_next" />',
+        prevArrow: '<span class="icon_prev" />',
+    })
+    $('.optionsSlider__item').first().addClass('active');
+    $('.optionsSlider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+        $('.optionsSlider__item').removeClass('active');
+        $('.optionsSlider__item[data-slide='+currentSlide+']').addClass('active');
+    });
+
+    $("input[type=tel]").intlTelInput({
+        nationalMode: true,
+        defaultCountry: "ru",
+        preferredCountries: ['ru'],
+        onlyCountries: ['ru', 'az', 'am', 'by', 'kz', 'kg', 'md', 'tj', 'tm', 'uz', 'ua', 'lt', 'lv', 'ee'],
+        utilsScript: "/js/utils.js"
+    });
+
+    var countryData = $("input[type=tel]").intlTelInput("getSelectedCountryData");
+
+    $('[data-toggle="modal"]').on('click', function() {
+        var subject = $(this).data('subject');
+        var modal = $('#callback');
+        // console.log(subject);
+
+        $('[name="subject"]').val(subject);
+        modal.find('[type="submit"]').text(subject);
+    })
+
+    $('a[data-lightbox]').on('click', function(e) {
+        e.preventDefault();
+        var href = $(this).attr('href'),
+            modal = $('#lightbox'),
+            body = modal.find('.modal-content');
+
+        body.html('<img src='+href+' />')
+        modal.modal('show');
+    })
+
 });
+
+
+function togglePlaning() {
+    var items = $('.planing__item');
+    var pane = $('.planing__pane');
+
+    items.on('click', function() {
+        var id = $(this).data('tabs');
+        items.removeClass('active');
+        pane.removeClass('active');
+
+        $(this).addClass('active');
+        $(id).addClass('active');
+
+    })
+}
+togglePlaning();
 
 $(window).resize(function(event) {
     var windowWidth = $(window).width();
@@ -52,236 +140,110 @@ $(window).resize(function(event) {
 });
 
 function checkOnResize() {
-    fontResize();
-}
+    if (isXsWidth()) {
+        $('.pesentation .section__title').prependTo('.pesentation__content');
+        $('.pesentation__descr').prependTo('.pesentation__form');
+        $('.apartmet__title').prependTo('.apartmet');
+        $('.planing__pane').each(function(index, el) {
+            var id = $(this).attr('id');
+            $(this).insertAfter('[data-tabs="#'+id+'"]');
+        });
+    } else {
+        $('.apartmet__title').prependTo('.apartmet__descr');
+        $('.pesentation__descr').appendTo('.pesentation__content');
+        $('.pesentation .section__title').prependTo('.pesentation__form');
 
-// Stiky menu // Липкое меню. При прокрутке к элементу #header добавляется класс .stiky который и стилизуем
-function stikyMenu() {
-    let HeaderTop = $('header').offset().top + $('.home').innerHeight();
-    let currentTop = $(window).scrollTop();
-
-    setNavbarPosition();
-
-    $(window).scroll(function(){
-        setNavbarPosition();
-    });
-
-    function setNavbarPosition() {
-        currentTop = $(window).scrollTop();
-
-        if( currentTop > HeaderTop ) {
-            $('header').addClass('stiky');
-        } else {
-            $('header').removeClass('stiky');
-        }
-
-        $('.navbar__link').each(function(index, el) {
-            let section = $(this).attr('href');
-
-            if ($('section').is(section)) {
-                let offset = $(section).offset().top;
-
-                if (offset <= currentTop && offset + $(section).innerHeight() > currentTop) {
-                    $(this).addClass('active');
-                } else {
-                    $(this).removeClass('active');
-                }
-            }
+        $('.planing__pane').each(function() {
+            $(this).appendTo('.planing__right');
         });
     }
-};
-
-// Scroll to ID // Плавный скролл к элементу при нажатии на ссылку. В ссылке указываем ID элемента
-function srollToId() {
-    $('[data-scroll-to]').click( function(){
-        var scroll_el = $(this).attr('href');
-        if ($(scroll_el).length != 0) {
-            $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
-        }
-        return false;
-    });
 }
 
-function fontResize() {
-    var windowWidth = $(window).width();
-    if (windowWidth >= 1200) {
-    	var fontSize = windowWidth/19.05;
-    } else if (windowWidth < 1200) {
-    	var fontSize = 60;
-    }
-	$('body').css('fontSize', fontSize + '%');
-}
-
-// Видео youtube для страницы
 function uploadYoutubeVideo() {
     if ($(".js_youtube")) {
 
         $(".js_youtube").each(function () {
-            // Зная идентификатор видео на YouTube, легко можно найти его миниатюру
             $(this).css('background-image', 'url(http://i.ytimg.com/vi/' + this.id + '/sddefault.jpg)');
 
-            // Добавляем иконку Play поверх миниатюры, чтобы было похоже на видеоплеер
             $(this).append($('<img src="img/play.svg" alt="Play" class="video__play">'));
 
         });
 
         $('.video__play, .video__prev').on('click', function () {
-            // создаем iframe со включенной опцией autoplay
             let wrapp = $(this).closest('.js_youtube'),
                 videoId = wrapp.attr('id'),
                 iframe_url = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&autohide=1";
 
             if ($(this).data('params')) iframe_url += '&' + $(this).data('params');
 
-            // Высота и ширина iframe должны быть такими же, как и у родительского блока
             let iframe = $('<iframe/>', {
                 'frameborder': '0',
                 'src': iframe_url,
             })
 
-            // Заменяем миниатюру HTML5 плеером с YouTube
             $(this).closest('.video__wrapper').append(iframe);
 
         });
     }
 };
 
+function formSubmit() {
+    $("[type=submit]").on('click', function (e){
+        e.preventDefault();
+        var form = $(this).closest('.form');
+        var url = form.attr('action');
+        var form_data = form.serialize();
+        var field = form.find('[required]');
 
-// Деление чисел на разряды Например из строки 10000 получаем 10 000
-// Использование: thousandSeparator(1000) или используем переменную.
-// function thousandSeparator(str) {
-//     var parts = (str + '').split('.'),
-//         main = parts[0],
-//         len = main.length,
-//         output = '',
-//         i = len - 1;
+        empty = 0;
 
-//     while(i >= 0) {
-//         output = main.charAt(i) + output;
-//         if ((len - i) % 3 === 0 && i > 0) {
-//             output = ' ' + output;
-//         }
-//         --i;
-//     }
+        field.each(function() {
+            if ($(this).val() == "") {
+                $(this).addClass('invalid');
+                // return false;
+                empty++;
+            } else {
+                $(this).removeClass('invalid');
+                $(this).addClass('valid');
+            }
+        });
 
-//     if (parts.length > 1) {
-//         output += '.' + parts[1];
-//     }
-//     return output;
-// };
+        if (empty > 0) {
+            return false;
+        } else {
+            $.ajax({
+                url: url,
+                type: "POST",
+                dataType: "html",
+                data: form_data,
+                success: function (response) {
+                    document.location.href = "success.html";
+                },
+                error: function (response) {
+                    console.log(response);
+                }
+            });
+        }
 
+    });
 
-// Хак для яндекс карт втавленных через iframe
-// Страуктура:
-//<div class="map__wrap" id="map-wrap">
-//  <iframe style="pointer-events: none;" src="https://yandex.ru/map-widget/v1/-/CBqXzGXSOB" width="1083" height="707" frameborder="0" allowfullscreen="true"></iframe>
-//</div>
-// Обязательное свойство в style которое и переключет скрипт
-// document.addEventListener('click', function(e) {
-//     var map = document.querySelector('#map-wrap iframe')
-//     if(e.target.id === 'map-wrap') {
-//         map.style.pointerEvents = 'all'
-//     } else {
-//         map.style.pointerEvents = 'none'
-//     }
-// })
+    $('[required]').on('keypress', function() {
+        if ($(this).val() != '') {
+            $(this).removeClass('invalid').addClass('valid');
+        } else {
+            $(this).removeClass('valid').addClass('invalid');
+        }
+    });
 
-// Простая проверка форм на заполненность и отправка аяксом
-// function formSubmit() {
-//     $("[type=submit]").on('click', function (e){
-//         e.preventDefault();
-//         var form = $(this).closest('.form');
-//         var url = form.attr('action');
-//         var form_data = form.serialize();
-//         var field = form.find('[required]');
-//         // console.log(form_data);
+    $('.form__privacy input').on('change', function(event) {
+        event.preventDefault();
+        var btn = $(this).closest('.form').find('.btn');
+        if ($(this).prop('checked')) {
+            btn.removeAttr('disabled');
+        } else {
+            btn.attr('disabled', true);
+        }
+    });
+}
 
-//         empty = 0;
-
-//         field.each(function() {
-//             if ($(this).val() == "") {
-//                 $(this).addClass('invalid');
-//                 // return false;
-//                 empty++;
-//             } else {
-//                 $(this).removeClass('invalid');
-//                 $(this).addClass('valid');
-//             }
-//         });
-
-//         // console.log(empty);
-
-//         if (empty > 0) {
-//             return false;
-//         } else {
-//             $.ajax({
-//                 url: url,
-//                 type: "POST",
-//                 dataType: "html",
-//                 data: form_data,
-//                 success: function (response) {
-//                     // $('#success').modal('show');
-//                     // console.log('success');
-//                     console.log(response);
-//                     // console.log(data);
-//                     // document.location.href = "success.html";
-//                 },
-//                 error: function (response) {
-//                     // $('#success').modal('show');
-//                     // console.log('error');
-//                     console.log(response);
-//                 }
-//             });
-//         }
-
-//     });
-
-//     $('[required]').on('blur', function() {
-//         if ($(this).val() != '') {
-//             $(this).removeClass('invalid');
-//         }
-//     });
-
-//     $('.form__privacy input').on('change', function(event) {
-//         event.preventDefault();
-//         var btn = $(this).closest('.form').find('.btn');
-//         if ($(this).prop('checked')) {
-//             btn.removeAttr('disabled');
-//             // console.log('checked');
-//         } else {
-//             btn.attr('disabled', true);
-//         }
-//     });
-// }
-
-
-// Проверка на возможность ввода только русских букв, цифр, тире и пробелов
-// $('#u_l_name').on('keypress keyup', function () {
-//     var that = this;
-//
-//     setTimeout(function () {
-//         if (that.value.match(/[ -]/) && that.value.length == 1) {
-//             that.value = '';
-//         }
-//
-//         if (that.value.match(/-+/g)) {
-//             that.value = that.value.replace(/-+/g, '-');
-//         }
-//
-//         if (that.value.match(/ +/g)) {
-//             that.value = that.value.replace(/ +/g, ' ');
-//         }
-//
-//         var res = /[^а-яА-Я -]/g.exec(that.value);
-//
-//         if (res) {
-//             removeErrorMsg('#u_l_name');
-//             $('#u_l_name').after('<div class="j-required-error b-check__errors">Измените язык ввода на русский</div>');
-//         }
-//         else {
-//             removeErrorMsg('#u_l_name');
-//         }
-//
-//         that.value = that.value.replace(res, '');
-//     }, 0);
-// });
+formSubmit();

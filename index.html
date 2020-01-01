@@ -1,39 +1,775 @@
 <!DOCTYPE html>
-<html lang="en"></html>
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-  <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css"/>
-</head>
-<body>
-  <header class="header">
-    <div class="header__content">
-      <div class="header__left"><a class="logo" href="/"><img src="img/logo.png" alt="alt"/></a></div>
-      <nav class="header__right">
-        <ul class="navbar">
-          <li class="navbar__item"><a class="navbar__link" href="#">Page 0</a></li>
-          <li class="navbar__item"><a class="navbar__link" href="#">Page 1</a></li>
-          <li class="navbar__item"><a class="navbar__link" href="#">Page 2</a></li>
-          <li class="navbar__item"><a class="navbar__link" href="#">Page 3</a></li>
-          <li class="navbar__item"><a class="navbar__link" href="#">Page 4</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <main class="main_content">
-    <div class="container_center">
-      <div class="grid">
-        <div class="grid__item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, in.</div>
-        <div class="grid__item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo numquam sequi officiis. Quia sed modi voluptatem, aut rem possimus at ipsa nobis iure non corporis nulla suscipit praesentium quos numquam quasi magni delectus eius illo, harum hic id! Laboriosam culpa recusandae nesciunt ab natus molestiae porro reiciendis, eveniet architecto temporibus!</div>
-        <div class="grid__item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt fugiat, pariatur, explicabo ut quidem deleniti velit sed error dolor! Voluptates dignissimos consectetur repudiandae ipsam. Iusto, rerum, quam! Corporis, nisi, inventore?</div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="vendor/slick-carousel/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css?2.1"/>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__left"><a class="logo" href="/"><img src="img/logo.png" alt="alt"/><span class="logo__descr">Официальный сайт комплекса апартаментов «Архитектор»</span></a></div>
+        <div class="header__right">
+          <div class="header__build">
+            <div class="flag">Сдача объекта </div>
+            <div class="header__buildDate"> декабрь 2020 года</div>
+          </div>
+          <div class="header__soc soc"><a class="icon icon_whatsapp" href="#"></a><a class="icon icon_telegram" href="#"></a><a class="icon icon_viber" href="#"></a></div>
+          <div class="header__contact">
+            <div class="header__contactTitle">Звонок по РФ бесплатный</div><a class="header__contactTel" href="tel: 8 800 333 25 33"><span>8 800 333 25 33</span><i></i></a><a class="header__callback" href="#" data-toggle="modal" data-target="#callback" data-subject="Перезвонить мне">Перезвонить вам?</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main_content">
+      <!-- begin firstScreen-->
+      <section class="firstScreen" id="firstScreen">
+        <div class="container_center">
+          <div class="firstScreen__content">
+            <div class="firstScreen__left">
+              <div class="firstScreen__counts">
+                <div class="firstScreen__countsItem">
+                  <div class="firstScreen__num">78</div>Апартаментов<span>премиум-класса</span>
+                </div>
+                <div class="firstScreen__countsItem">
+                  <div class="firstScreen__num">6</div>Двухуровневых апартаментов 
+                </div>
+              </div>
+            </div>
+            <div class="firstScreen__right">
+              <h2 class="section__title">«Архитектор» — комплекс апартаментов премиум-класса в Сочи</h2>
+              <div class="firstScreen__action"><img class="firstScreen__paper" src="img/fpaper.png" alt="alt"/>
+                <button class="btn" type="button" data-toggle="modal" data-target="#upload" data-subject="Скачать презентацию">Скачать подробную презентацию</button>
+                <div class="firstScreen__actionSub">Время загрузки — 4 секунды</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="firstScreen__shadow"></div>
+      </section>
+      <!-- end firstScreen-->
+      <!-- begin details-->
+      <section class="details section" id="details">
+        <div class="container_center">
+          <div class="details__top">
+            <div class="flag">Концепция жизни</div>
+            <h2 class="section__title">Забота о жителях <br>в мельчайших деталях</h2>
+            <div class="details__thumbs">
+              <div class="details__item">
+                <div class="details__img"><img src="img/datails-1.png"/></div>
+                <div class="details__name">Лобби-бар и коворкинг</div>
+              </div>
+              <div class="details__item">
+                <div class="details__img"><img src="img/datails-2.png"/></div>
+                <div class="details__name">Фитнес-клуб премиум класса</div>
+              </div>
+              <div class="details__item">
+                <div class="details__img"><img src="img/datails-3.png"/></div>
+                <div class="details__name">Консьерж-сервис 24/7</div>
+              </div>
+              <div class="details__item">
+                <div class="details__img"><img src="img/datails-4.png"/></div>
+                <div class="details__name">Салон красоты</div>
+              </div>
+              <div class="details__item">
+                <div class="details__img"><img src="img/datails-5.png"/></div>
+                <div class="details__name">Услуги клининга</div>
+              </div>
+              <div class="details__item">
+                <div class="details__img"><img src="img/datails-6.png"/></div>
+                <div class="details__name">Сквер для прогулок и отдыха</div>
+              </div>
+              <div class="details__item">
+                <div class="details__img"><img src="img/datails-7.png"/></div>
+                <div class="details__name">Wellness-зона: СПА и массаж</div>
+              </div>
+              <div class="details__item">
+                <div class="details__img"><img src="img/datails-8.png"/></div>
+                <div class="details__name">Услуги портных и химчистка</div>
+              </div>
+              <div class="details__item">
+                <div class="details__img"><img src="img/datails-9.png"/></div>
+                <div class="details__name">Спортивная площадка</div>
+              </div>
+              <div class="details__item">
+                <div class="details__img"><img src="img/datails-10.png"/></div>
+                <div class="details__name">2 ресторана</div>
+              </div>
+              <div class="details__item">
+                <div class="details__img"><img src="img/datails-11.png"/></div>
+                <div class="details__name">Room-service из ресторана</div>
+              </div>
+              <div class="details__item">
+                <div class="details__img"><img src="img/datails-12.png"/></div>
+                <div class="details__name">Детская площадка</div>
+              </div>
+              <div class="details__item">
+                <div class="details__img"><img src="img/datails-13.png"/></div>
+                <div class="details__name">Кофейня</div>
+              </div>
+              <div class="details__item">
+                <div class="details__img"><img src="img/datails-14.png"/></div>
+                <div class="details__name">Охраняемая территория</div>
+              </div>
+              <div class="details__item">
+                <div class="details__img"><img src="img/datails-15.png"/></div>
+                <div class="details__name">Сервис водителей</div>
+              </div>
+            </div>
+          </div>
+          <div class="detailsInfo">
+            <div class="detailsInfo__item">
+              <div class="detailsInfo__name">Общая площадь апартаментов</div>
+              <div class="detailsInfo__value">5 817<small>м<i>2</i></small></div>
+            </div>
+            <div class="detailsInfo__item">
+              <div class="detailsInfo__name">Количество этажей</div>
+              <div class="detailsInfo__value">6<small>этажей</small></div>
+            </div>
+            <div class="detailsInfo__item">
+              <div class="detailsInfo__name">Площадь апартаментов</div>
+              <div class="detailsInfo__value">22,4 — 112,5<small>м<i>2</i></small></div>
+            </div>
+          </div>
+        </div>
+        <!-- begin collage-->
+        <div class="collage">
+          <div class="collage__item"><a href="img/apartmet.jpg" data-fancybox="collage"><img src="img/collag-1.jpg" alt=""/></a></div>
+          <div class="collage__item"><a href="img/apartmet.jpg" data-fancybox="collage"><img src="img/collag-2.jpg" alt=""/></a></div>
+          <div class="collage__item"><a href="img/apartmet.jpg" data-fancybox="collage"><img src="img/collag-3.jpg" alt=""/></a><a href="img/collag-4.jpg" data-fancybox="collage"><img src="img/collag-4.jpg" alt=""/></a></div>
+          <div class="collage__item"><a href="img/collag-5.jpg" data-fancybox="collage"><img src="img/collag-5.jpg" alt=""/></a></div>
+        </div>
+        <div class="collage collage_mob">
+          <div class="collage__item"><img src="img/collag-1.jpg" alt=""/></div>
+          <div class="collage__item"><img src="img/collag-2.jpg" alt=""/></div>
+          <div class="collage__item"><img src="img/collag-5.jpg" alt=""/></div>
+        </div>
+        <!-- end collage-->
+      </section>
+      <!-- end details-->
+      <!-- begin pesentation-->
+      <section class="pesentation" id="pesentation"><img class="desktop" src="img/presentation.png" alt=""/><img class="mobile" src="img/presentation-mob.png" alt=""/>
+        <div class="container_center pesentation__content">
+          <div class="pesentation__form">
+            <h2 class="section__title">Получите подробную презентацию комплекса прямо сейчас</h2>
+            <form class="form" action="send.php" method="method">
+              <input type="hidden" name="subject" value="Получить презентацию"/>
+              <div class="form__row">
+                <input type="text" name="email" placeholder="Введите ваш E-mail" required="required"/>
+              </div>
+              <div class="form__row">
+                <input type="tel" name="tel" placeholder="" required="required"/>
+              </div>
+              <div class="form__row">
+                <button class="btn" type="submit">Получить презентацию</button>
+              </div>
+              <div class="form__privacy">
+                <label>
+                  <input type="checkbox" checked="checked"/><span>Я ознакомился с <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#privacyModal">политикой конфиденциальности  обработки персональных данных</a></span>
+                </label>
+              </div>
+            </form>
+          </div>
+          <div class="pesentation__info">
+            <div class="pesentation__pdf"><img src="img/pdf.png" alt=""/></div>
+            <div class="pesentation__time">Время загрузки 4 сек.</div>
+          </div>
+          <div class="pesentation__descr">
+            <div class="pesentation__text">
+              <div class="pesentation__name">Что содержит в себе подробная презентация комплекса «Архитектор»</div>
+              <ol class="pesentation__list">
+                <li>Описание инфраструктуры.</li>
+                <li>Варианты отделки. </li>
+                <li>Варианты планировок.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- end pesentation-->
+      <!-- begin apartmet-->
+      <section class="apartmet" id="apartmet">
+        <div class="apartmetSlider">
+          <div class="apartmetSlider__item"><img src="img/apartmet.jpg" alt=""/></div>
+          <div class="apartmetSlider__item"><img src="img/apartmet.jpg" alt=""/></div>
+        </div>
+        <div class="apartmet__descr">
+          <div class="apartmet__title">На первом этаже комплекса</div>
+          <ol class="apartmet__list">
+            <li>Лобби-бар для встреч и работы</li>
+            <li>Салон красоты</li>
+            <li>Wellness-зона: СПА и массаж</li>
+            <li>Консьерж и охрана</li>
+            <li>Кофейня</li>
+            <li>Услуги клининга апартаментов</li>
+            <li>Услуги портных и химчистка</li>
+          </ol>
+        </div>
+      </section>
+      <!-- end apartmet-->
+      <!-- begin planing-->
+      <section class="planing" id="planing">
+        <div class="container_center">
+          <h2 class="section__title">Планировки, в которых продуман каждый квадратный метр</h2>
+          <div class="section__sub">Изучите примеры планировок нашего комплекса апартаментов</div>
+          <div class="planing__content">
+            <div class="planing__left">
+              <div class="planing__tabs">
+                <div class="planing__item active" data-tabs="#planing1">Студия</div>
+                <div class="planing__item" data-tabs="#planing2">1-к апартаменты</div>
+                <div class="planing__item" data-tabs="#planing3">2-к апартаменты</div>
+                <div class="planing__item" data-tabs="#planing4">Двухуровневые <br>апартменты</div>
+              </div>
+              <div class="planing__sub"> <img src="img/pointer.png" alt=""/>Выберите интересующий вас тип апартаментов</div>
+            </div>
+            <div class="planing__right">
+              <div class="planing__pane active" id="planing1">
+                <div class="planing__img"><img src="img/planing.png" alt=""/></div>
+                <div class="planing__descr">
+                  <div class="planing__props">
+                    <div class="planing__label">Площадь</div>
+                    <div class="planing__count">38<small>кв. метров</small></div>
+                  </div>
+                  <div class="planing__props">
+                    <div class="planing__label">В продаже</div>
+                    <div class="planing__count">17<small>апартаментов</small></div>
+                  </div>
+                </div>
+              </div>
+              <div class="planing__pane" id="planing2">
+                <div class="planing__img"><img src="img/planing.png" alt=""/></div>
+                <div class="planing__descr">
+                  <div class="planing__props">
+                    <div class="planing__label">Площадь</div>
+                    <div class="planing__count">38<small>кв. метров</small></div>
+                  </div>
+                  <div class="planing__props">
+                    <div class="planing__label">В продаже</div>
+                    <div class="planing__count">17<small>апартаментов</small></div>
+                  </div>
+                </div>
+              </div>
+              <div class="planing__pane" id="planing3">
+                <div class="planing__img"><img src="img/planing.png" alt=""/></div>
+                <div class="planing__descr">
+                  <div class="planing__props">
+                    <div class="planing__label">Площадь</div>
+                    <div class="planing__count">38<small>кв. метров</small></div>
+                  </div>
+                  <div class="planing__props">
+                    <div class="planing__label">В продаже</div>
+                    <div class="planing__count">17<small>апартаментов</small></div>
+                  </div>
+                </div>
+              </div>
+              <div class="planing__pane" id="planing4">
+                <div class="planing__img"><img src="img/planing.png" alt=""/></div>
+                <div class="planing__descr">
+                  <div class="planing__props">
+                    <div class="planing__label">Площадь</div>
+                    <div class="planing__count">38<small>кв. метров</small></div>
+                  </div>
+                  <div class="planing__props">
+                    <div class="planing__label">В продаже</div>
+                    <div class="planing__count">17<small>апартаментов</small></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- end planing-->
+      <!-- begin getPresent-->
+      <section class="getPresent" id="getPresent">
+        <div class="container_center">
+          <div class="getPresent__content"><img class="getPresent__book mobile" src="img/getPresent-mob.png" alt=""/><img class="getPresent__book desktop" src="img/getPresent.png" alt=""/><img class="getPresent__bird" src="img/bird.png" alt=""/>
+            <h2 class="section__title">Получите полную презентацию комплекса апартаментов</h2>
+            <div class="section__sub">со всеми планировками и ценами апартаментов</div>
+            <form class="getPresent__form form" action="#">
+              <input type="hidden" name="subject" value="Получить презентацию"/>
+              <div class="form__row">
+                <input type="text" name="email" placeholder="Введите ваш E-mail" required="required"/>
+              </div>
+              <div class="form__row">
+                <input type="tel" name="tel" placeholder="+7 (_ _ _) _ _ _ - _ _ - _ _" required="required"/>
+              </div>
+              <div class="form__row">
+                <button class="btn" type="submit">Получить презентацию</button>
+              </div>
+              <div class="form__privacy">
+                <label>
+                  <input type="checkbox" checked="checked"/><span>Я ознакомился с <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#privacyModal">политикой конфиденциальности обработки персональных данных</a></span>
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="optionsSlider__wrap">
+          <div class="optionsSlider">
+            <div class="optionsSlider__slide"><img src="img/optionsSlider.jpg" alt=""/></div>
+            <div class="optionsSlider__slide"><img src="img/optionsSlider.jpg" alt=""/></div>
+            <div class="optionsSlider__slide"><img src="img/optionsSlider.jpg" alt=""/></div>
+          </div>
+          <div class="optionsSlider__info">
+            <div class="optionsSlider__title">3 варианта дизайна и отделки апартаментов</div>
+            <div class="optionsSlider__text">
+              <p>Мы сдаем апартаменты с отделкой «под ключ», которая подойдет под любой дизайн-проект.</p>
+              <p>Вам лишь останется подобрать мебель, технику и предметы интерьера.</p>
+            </div>
+            <div class="optionsSlider__bottom">
+              <div class="optionsSlider__item" data-slide="0">Лофт</div>
+              <div class="optionsSlider__item" data-slide="1">Тёмный модерн</div>
+              <div class="optionsSlider__item" data-slide="2">Скандинавский стиль</div>
+            </div>
+          </div>
+          <div class="optionsSlider__action">
+            <button class="btn" type="button" data-toggle="modal" data-target="#personalEvent" data-subject="Записаться на встречу">Записаться на личную встречу в офис продаж</button>
+          </div>
+        </div>
+      </section>
+      <!-- end getPresent-->
+      <!-- begin infrastructure-->
+      <section class="infrastructure" id="infrastructure">
+        <div class="container_center">
+          <div class="flag">Инфраструктура</div>
+          <h2 class="section__title">Комплекс апартаментов «Архитектор» находится в самом сердце деловой части города Сочи</h2>
+        </div>
+        <div class="infrastructure__tabs">
+          <div class="infrastructure__item active" data-search="school">Школы и детские сады</div>
+          <div class="infrastructure__item" data-search="sport"><span>Фитнес и </span>спортивные центры</div>
+          <div class="infrastructure__item" data-search="market">Магазины и торговые центры</div>
+          <div class="infrastructure__item" data-search="business">Для бизнеса</div>
+          <div class="infrastructure__item" data-search="food">Рестораны</div>
+          <div class="infrastructure__item" data-search="medical">Медицинские учреждения</div>
+        </div>
+        <div class="infrastructure__map">
+          <div id="maps"></div>
+          <div class="infrastructure__action">
+            <button class="btn" type="button" data-toggle="modal" data-target="#upload" data-subject="Скачать презентацию">Получить подробную презентацию жилого комплекса</button>
+          </div>
+        </div>
+      </section>
+      <!-- end infrastructure-->
+      <!-- begin developer-->
+      <section class="developer" id="developer">
+        <div class="container_center">
+          <div class="developer__content">
+            <h2 class="section__title">Девелопер <br>проекта «Архитектор»</h2><img src="img/developer.png" alt=""/>
+            <div class="developer__descr">
+              <div class="developer__name">Копничев Роман</div>
+              <div class="developer__prof">Архитектор комплекса апартаментов</div>
+            </div>
+            <div class="developer__text">
+              <p>Апартаменты в АК АРХИТЕКТОР – один из лучших вариантов в качестве городской резиденции и надежная долгосрочная инвестиция.</p>
+              <p>Идея возникла из нескольких составляющих. Во-первых, в этой исторической части города сложно построить что-то новое, не убирая старые здания. Места для нового строительства почти нет. Поэтому модернизация и обновление – это лучшее решение. Во-вторых, здесь нет апартаментных комплексов премиум-класса, а запрос есть, место очень привлекательное. В-третьих, хотелось придать комплексу современное звучание и дать актуальное наполнение.</p>
+              <p>Провести внутреннее и внешнее обновление такого сложного составного комплекса  гораздо сложней, чем делать новый проект. Но это и интересно. Получился уникальный для Сочи объект, и я уверен, будущие хозяева апартаментов будут очень довольны своим выбором.</p>
+            </div>
+          </div>
+        </div>
+        <!-- begin .developerSlider-->
+        <div class="developerSlider">
+          <div class="developerSlider__item">
+            <div class="developerSlider__descr">
+              <div class="developerSlider__name">Приватная парковая зона вокруг комплекса</div>Мы выделили 2 га площади под зоны для прогулок с детьми, отдыха и спорта
+            </div><img src="img/developer-1.jpg" alt=""/>
+            <div class="developerSlider__marker">
+              <div class="flag">На фотографии </div>детская площадка
+            </div>
+          </div>
+          <div class="developerSlider__item">
+            <div class="developerSlider__descr">
+              <div class="developerSlider__name">Приватная парковая зона вокруг комплекса</div>Мы выделили 2 га площади под зоны для прогулок с детьми, отдыха и спорта
+            </div><img src="img/developer-1.jpg" alt=""/>
+            <div class="developerSlider__marker">
+              <div class="flag">На фотографии </div>детская площадка
+            </div>
+          </div>
+        </div>
+        <!-- end .developerSlider-->
+      </section>
+      <!-- end developer-->
+      <!-- begin stage-->
+      <section class="stage" id="stage">
+        <div class="container_center">
+          <h2 class="section__title">На данном этапе мы <br>заканчиваем отделочные работы</h2>
+          <div class="stage__sub mobile">Сдача объекта и выдача ключей — август 2019</div>
+          <div class="stage__img"></div>
+          <div class="stage__slider mobile">
+            <div class="stage__item"><img src="img/stage-slide.jpg" alt=""/></div>
+            <div class="stage__item"><img src="img/stage-slide.jpg" alt=""/></div>
+            <div class="stage__item"><img src="img/stage-slide.jpg" alt=""/></div>
+          </div>
+        </div>
+      </section>
+      <!-- end stage-->
+      <!-- begin ipoteka-->
+      <section class="ipoteka" id="ipoteka">
+        <div class="container_center">
+          <div class="ipoteka__top">
+            <h2 class="section__title">Выгодная ипотека <br>от банков-партнеров</h2>
+            <div class="ipoteka__logo"><img src="img/alfa.png" alt="Альфа банк"/><img src="img/absolut.png" alt="Абсолют банк"/></div>
+          </div>
+        </div>
+        <div class="ipoteka__bottom">
+          <div class="container_center">
+            <div class="ipoteka__count">
+              <div class="ipoteka__item">
+                <div class="ipoteka__label">Ставка от</div>
+                <div class="ipoteka__number">9,3%</div>
+              </div>
+              <div class="ipoteka__item">
+                <div class="ipoteka__label">Первый взнос от</div>
+                <div class="ipoteka__number">15%</div>
+              </div>
+              <div class="ipoteka__item">
+                <div class="ipoteka__label">Месячный платёж от</div>
+                <div class="ipoteka__number">158 000 руб.</div>
+              </div>
+            </div>
+            <div class="ipoteka__action"><img class="desktop" src="img/ipoteka-men.png" alt=""/><img class="mobile" src="img/ipoteka-men-mob.png" alt=""/>
+              <div class="ipoteka__title">Получите консультацию <br>от нашего ипотечного брокера</div>
+              <div class="ipoteka__btn">
+                <button class="btn" type="button" data-toggle="modal" data-target="#consultation" data-subject="Получить консультацию">Получить консультацию по ипотеке</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- end ipoteka-->
+      <!-- begin office-->
+      <section class="office" id="office">
+        <div class="container_center">
+          <h2 class="section__title">Приглашаем вас в наш офис продаж</h2>
+          <div class="section__sub">При отделке нашего офиса используются только те материалы, которые используются <br>в отделке мест общего пользования самого комплекса</div>
+          <div class="office__action">
+            <button class="btn" type="button" data-toggle="modal" data-target="#personalEvent" data-subject="Записаться на встречу">Записаться на встречу<small>с представителем комплекса «Архитектор»</small></button>
+            <div class="office__sub">Мы будем рады встретиться с вами и провести экскурсию на объект</div>
+          </div>
+        </div>
+      </section>
+      <!-- end office-->
+      <!-- begin legal-->
+      <section class="legal" id="legal">
+        <div class="container_center">
+          <h2 class="section__title">Безупречная юридическая чистота объекта</h2>
+          <div class="legal__list">
+            <div class="legal__item legal__item_vertical">
+              <div class="legal__img"><img src="img/sert-1.jpg" alt=""/></div>
+              <div class="legal__name">Выписка из ЕГРН на земельный участок</div>
+            </div>
+            <div class="legal__item legal__item_vertical">
+              <div class="legal__img"><img src="img/sert-2.jpg" alt=""/></div>
+              <div class="legal__name">Договор аренды земельного участка</div>
+            </div>
+            <div class="legal__item legal__item_vertical">
+              <div class="legal__img"><img src="img/sert-1.jpg" alt=""/></div>
+              <div class="legal__name">Выписка из ЕГРН на помещение</div>
+            </div>
+            <div class="legal__item legal__item_vertical">
+              <div class="legal__img"><img src="img/sert-2.jpg" alt=""/></div>
+              <div class="legal__name">Решение о разделе</div>
+            </div>
+            <div class="legal__item legal__item_vertical">
+              <div class="legal__img"><img src="img/sert-1.jpg" alt=""/></div>
+              <div class="legal__name">Технический план</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- end legal-->
+      <!-- begin contact-->
+      <section class="contact" id="contact">
+        <div class="container_center">
+          <div class="contact__top">
+            <h2 class="section__title">Контактная информация</h2>
+            <div class="contact__acton">
+              <div class="header__soc soc"><a class="icon icon_whatsapp" href="#"></a><a class="icon icon_telegram" href="#"></a><a class="icon icon_viber" href="#"></a></div>
+              <div class="header__contact">
+                <div class="header__contactTitle">Звонок по РФ бесплатный</div><a class="header__contactTel" href="tel: 8 800 333 25 33">8 800 333 25 33</a><a class="header__callback" href="#" data-toggle="modal" data-target="#callback" data-subject="Перезвонить мне">Перезвонить вам?</a>
+              </div><img src="img/iPhone.png" alt=""/>
+            </div>
+          </div>
+        </div>
+        <div class="contact__bottom">
+          <div class="map__wrap">
+            <div id="map"></div>
+          </div>
+          <div class="contact__info">
+            <div class="contact__row">
+              <div class="contact__icon"><img src="img/place.png" alt=""/></div>
+              <div class="contact__label">Адрес объекта</div>
+              <div class="contact__props">Россия, г.Сочи, <br>ул.Конституции СССР, д.18</div>
+            </div>
+            <div class="contact__row">
+              <div class="contact__icon"><img src="img/rub.png" alt=""/></div>
+              <div class="contact__label">Адрес офиса продаж</div>
+              <div class="contact__props">г.Сочи, ул.Конституции СССР, д.18</div>
+            </div>
+            <div class="contact__row">
+              <div class="contact__icon"><img src="img/mail.png" alt=""/></div>
+              <div class="contact__label">Есть вопрос? Напишите нам по адресу</div>
+              <div class="contact__props"> <a href="mailto: info@architector.ru">info@architector.ru</a></div>
+            </div>
+            <div class="contact__row">
+              <div class="contact__icon"><img src="img/data.png" alt=""/></div>
+              <div class="contact__label">График работы</div>
+              <div class="contact__props">пн-пт  10:00  – 18:00</div>
+              <div class="contact__props">сб-вс  10:00  – 15:00</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- end contact-->
+    </main>
+    <footer class="footer">
+      <div class="container_center">
+        <div class="footer__content">
+          <div class="footer__left"><a class="logo" href="/"><img src="img/logo.png" alt="alt"/><span class="logo__descr">Официальный сайт комплекса апартаментов «Архитектор»</span></a></div>
+          <div class="footer__center"><a href="#" data-toggle="modal" data-target="#privacyModal">Политика конфиденциальности</a></div>
+          <div class="footer__right"><a class="develop" href=""><span class="develop__label">Разработка сайта</span><span class="develop__img"><img src="img/dlogo.png" alt=""/></span></a>
+            <div class="footer__copy">© 2019 Company Inc</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Button trigger modal callback-->
+    <!-- Begin Modal callback-->
+    <div class="modal fade callback" id="callback">
+      <div class="modal-dialog">
+        <div class="modal-left"><img src="img/callback.png" alt=""/></div>
+        <div class="modal-content"><a class="modal-close" href="#" data-dismiss="modal"></a>
+          <div class="modal__title">Оставьте свои контактные данные,</div>
+          <div class="modal__sub">и наш менеджер свяжется с вами в течение 10 минут</div>
+          <div class="modal-body"> 
+            <form class="form" action="send.php" method="method">
+              <input type="hidden" name="subject" value=""/>
+              <div class="form__row">
+                <input type="text" name="name" placeholder="Введите ваше Имя" required="required"/>
+              </div>
+              <div class="form__row">
+                <input type="text" name="email" placeholder="Введите ваш E-mail" required="required"/>
+              </div>
+              <div class="form__row">
+                <input type="tel" name="tel" placeholder="" required="required"/>
+              </div>
+              <div class="form__row">
+                <button class="btn" type="submit">Получить презентацию</button>
+              </div>
+              <div class="form__privacy">
+                <label>
+                  <input type="checkbox" checked="checked"/><span>Я ознакомился с <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#privacyModal">политикой конфиденциальности обработки персональных данных</a></span>
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-  </main>
-  <footer class="footer">
-    <div class="container_center">
-      <p></p>&copy; 2016 |<i class="fa fa-github" aria-hidden="true">&nbsp;</i><a href="#">View Source</a>
+    <!-- End modal callback-->
+    <!-- Button trigger modal upload-->
+    <!-- Begin Modal upload-->
+    <div class="modal fade upload" id="upload">
+      <div class="modal-dialog">
+        <div class="modal-left"><img src="img/catalog.png" alt=""/></div>
+        <div class="modal-content"><a class="modal-close" href="#" data-dismiss="modal"></a>
+          <div class="modal__title">Оставьте свои контактные данные,</div>
+          <div class="modal__sub">и наш менеджер свяжется с вами в течение 10 минут</div>
+          <div class="modal-body"> 
+            <form class="form" action="send.php" method="method">
+              <input type="hidden" name="subject" value=""/>
+              <div class="form__row">
+                <input type="text" name="name" placeholder="Введите ваше Имя" required="required"/>
+              </div>
+              <div class="form__row">
+                <input type="text" name="email" placeholder="Введите ваш E-mail" required="required"/>
+              </div>
+              <div class="form__row">
+                <input type="tel" name="tel" placeholder="" required="required"/>
+              </div>
+              <div class="form__row">
+                <button class="btn" type="submit">Скачать презентацию</button>
+              </div>
+              <div class="form__privacy">
+                <label>
+                  <input type="checkbox" checked="checked"/><span>Я ознакомился с <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#privacyModal">политикой конфиденциальности обработки персональных данных</a></span>
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-  </footer>
-</body>
+    <!-- End modal upload-->
+    <!-- Button trigger modal personalEvent-->
+    <!-- Begin Modal personalEvent-->
+    <div class="modal fade personalEvent" id="personalEvent">
+      <div class="modal-dialog">
+        <div class="modal-left"><img src="img/personal.png" alt=""/></div>
+        <div class="modal-content"><a class="modal-close" href="#" data-dismiss="modal"></a>
+          <div class="modal__title">Оставьте свои контактные данные,</div>
+          <div class="modal__sub">и наш менеджер свяжется с вами в течение 10 минут</div>
+          <div class="modal-body"> 
+            <form class="form" action="send.php" method="method">
+              <input type="hidden" name="subject" value=""/>
+              <div class="form__row">
+                <input type="text" name="name" placeholder="Введите ваше Имя" required="required"/>
+              </div>
+              <div class="form__row">
+                <input type="text" name="email" placeholder="Введите ваш E-mail" required="required"/>
+              </div>
+              <div class="form__row">
+                <input type="tel" name="tel" placeholder="" required="required"/>
+              </div>
+              <div class="form__row">
+                <button class="btn" type="submit">Записаться на встречу</button>
+              </div>
+              <div class="form__privacy">
+                <label>
+                  <input type="checkbox" checked="checked"/><span>Я ознакомился с <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#privacyModal">политикой конфиденциальности обработки персональных данных</a></span>
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End modal personalEvent-->
+    <!-- Button trigger modal consultation-->
+    <!-- Begin Modal consultation-->
+    <div class="modal fade consultation" id="consultation">
+      <div class="modal-dialog">
+        <div class="modal-left"><img src="img/personal.png" alt=""/></div>
+        <div class="modal-content"><a class="modal-close" href="#" data-dismiss="modal"></a>
+          <div class="modal__title">Оставьте свои контактные данные,</div>
+          <div class="modal__sub">и наш менеджер свяжется с вами в течение 10 минут</div>
+          <div class="modal-body"> 
+            <form class="form" action="send.php" method="method">
+              <input type="hidden" name="subject" value=""/>
+              <div class="form__row">
+                <input type="text" name="name" placeholder="Введите ваше Имя" required="required"/>
+              </div>
+              <div class="form__row">
+                <input type="text" name="email" placeholder="Введите ваш E-mail" required="required"/>
+              </div>
+              <div class="form__row">
+                <input type="tel" name="tel" placeholder="" required="required"/>
+              </div>
+              <div class="form__row">
+                <button class="btn" type="submit">Получить консультацию</button>
+              </div>
+              <div class="form__privacy">
+                <label>
+                  <input type="checkbox" checked="checked"/><span>Я ознакомился с <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#privacyModal">политикой конфиденциальности обработки персональных данных</a></span>
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End modal consultation-->
+    <!-- Begin Modal privacyModal-->
+    <div class="modal fade privacyModal" id="privacyModal">
+      <div class="modal-dialog">
+        <div class="modal-content"><a class="modal-close" href="#" data-dismiss="modal"></a>
+          <h2>Политика конфиденциальности</h2>
+          <p>Настоящая Политика конфиденциальности персональных данных (далее – Политика конфиденциальности) действует в отношении всей информации, которую сайт «ЖК Архитектор», расположенный на доменном имени ak-arkhitektor.ru, может получить о Пользователе во время использования сайта, программ и продуктов.</p>
+          <h3>1. ОПРЕДЕЛЕНИЕ ТЕРМИНОВ</h3>
+          <p>1.1. В настоящей Политике конфиденциальности используются следующие термины:</p>
+          <p>1.1.1. «Администрация сайта (далее – Администрация сайта) » – уполномоченные сотрудники на управления сайтом, действующие от имени Название организации, которые организуют и (или) осуществляет обработку персональных данных, а также определяет цели обработки персональных данных, состав персональных данных, подлежащих обработке, действия (операции), совершаемые с персональными данными.</p>
+          <p>1.1.2. «Персональные данные» - любая информация, относящаяся к прямо или косвенно определенному или определяемому физическому лицу (субъекту персональных данных).</p>
+          <p>1.1.3. «Обработка персональных данных» - любое действие (операция) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств с персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (распространение, предоставление, доступ), обезличивание, блокирование, удаление, уничтожение персональных данных.</p>
+          <p>1.1.4. «Конфиденциальность персональных данных» - обязательное для соблюдения Оператором или иным получившим доступ к персональным данным лицом требование не допускать их распространения без согласия субъекта персональных данных или наличия иного законного основания.</p>
+          <p>1.1.5. «Пользователь сайта (далее Пользователь)» – лицо, имеющее доступ к Сайту, посредством сети Интернет и использующее Сайт.</p>
+          <p>1.1.6. «Cookies» — небольшой фрагмент данных, отправленный веб-сервером и хранимый на компьютере пользователя, который веб-клиент или веб-браузер каждый раз пересылает веб-серверу в HTTP-запросе при попытке открыть страницу соответствующего сайта.</p>
+          <p>1.1.7. «IP-адрес» — уникальный сетевой адрес узла в компьютерной сети, построенной по протоколу IP.</p>
+          <h3>2. ОБЩИЕ ПОЛОЖЕНИЯ</h3>
+          <p>2.1. Использование Пользователем сайта означает согласие с настоящей Политикой конфиденциальности и условиями обработки персональных данных Пользователя.</p>
+          <p>2.2. В случае несогласия с условиями Политики конфиденциальности Пользователь должен прекратить использование сайта.</p>
+          <p>2.3. Настоящая Политика конфиденциальности применяется только к сайту «ЖК Архитектор». Сайт не контролирует и не несет ответственность за сайты третьих лиц, на которые Пользователь может перейти по ссылкам, доступным на сайте.</p>
+          <p>2.4. Администрация сайта не проверяет достоверность персональных данных, предоставляемых Пользователем сайта.</p>
+          <h3>3. ПРЕДМЕТ ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ</h3>
+          <p>3.1. Настоящая Политика конфиденциальности устанавливает обязательства Администрации сайта по неразглашению и обеспечению режима защиты конфиденциальности персональных данных, которые Пользователь предоставляет по запросу Администрации сайта при регистрации на сайте или при оформлении заказа для приобретения Товара.</p>
+          <p>3.2. Персональные данные, разрешённые к обработке в рамках настоящей Политики конфиденциальности, предоставляются Пользователем путём заполнения регистрационной формы на Сайте «ЖК Архитектор» в разделе оставления заявок и включают в себя следующую информацию:</p>
+          <p>3.2.1. фамилию, имя, отчество Пользователя;</p>
+          <p>3.2.2. контактный телефон Пользователя;</p>
+          <p>3.2.3. адрес электронной почты (e-mail);</p>
+          <p>3.3. защищает Данные, которые автоматически передаются в процессе просмотра рекламных блоков и при посещении страниц, на которых установлен статистический скрипт системы ("пиксель"): • IP адрес; • информация из cookies; • информация о браузере (или иной программе, которая осуществляет доступ к показу рекламы); • время доступа; • адрес страницы, на которой расположен рекламный блок; • реферер (адрес предыдущей страницы).</p>
+          <p>3.3.1. Отключение cookies может повлечь невозможность доступа к частям сайта, требующим авторизации.</p>
+          <p>3.3.2. осуществляет сбор статистики об IP-адресах своих посетителей. Данная информация используется с целью выявления и решения технических проблем, для контроля законности проводимых финансовых платежей.</p>
+          <p>3.4. Любая иная персональная информация неоговоренная выше (история покупок, используемые браузеры и операционные системы и т.д.) подлежит надежному хранению и нераспространению, за исключением случаев, предусмотренных в п.п. 5.2. и 5.3. настоящей Политики конфиденциальности.</p>
+          <h3>4. ЦЕЛИ СБОРА ПЕРСОНАЛЬНОЙ ИНФОРМАЦИИ ПОЛЬЗОВАТЕЛЯ</h3>
+          <p>4.1. Персональные данные Пользователя Администрация сайта может использовать в целях:</p>
+          <p>4.1.1. Идентификации Пользователя, зарегистрированного на сайте.</p>
+          <p>4.1.2. Предоставления Пользователю доступа к персонализированным ресурсам Сайта.</p>
+          <p>4.1.3. Установления с Пользователем обратной связи, включая направление уведомлений, запросов, касающихся использования Сайта, оказания услуг, обработка запросов и заявок от Пользователя.</p>
+          <p>4.1.4. Определения места нахождения Пользователя для обеспечения безопасности, предотвращения мошенничества.</p>
+          <p>4.1.5. Подтверждения достоверности и полноты персональных данных, предоставленных Пользователем.</p>
+          <p>4.1.6. Создания учетной записи для совершения покупок, если Пользователь дал согласие на создание учетной записи.</p>
+          <p>4.1.7. Уведомления Пользователя Сайта о состоянии Заказа.</p>
+          <p>4.1.8. Обработки и получения платежей, подтверждения налога или налоговых льгот, оспаривания платежа, определения права на получение кредитной линии Пользователем.</p>
+          <p>4.1.9. Предоставления Пользователю эффективной клиентской и технической поддержки при возникновении проблем, связанных с использованием Сайта.</p>
+          <p>4.1.10. Предоставления Пользователю с его согласия, обновлений продукции, специальных предложений, информации о ценах, новостной рассылки и иных сведений от имени сайта или от имени партнеров.</p>
+          <p>4.1.11. Осуществления рекламной деятельности с согласия Пользователя.</p>
+          <p>4.1.12. Предоставления доступа Пользователю на сайты или сервисы партнеров с целью получения продуктов, обновлений и услуг.</p>
+          <h3>5. СПОСОБЫ И СРОКИ ОБРАБОТКИ ПЕРСОНАЛЬНОЙ ИНФОРМАЦИИ</h3>
+          <p>5.1. Обработка персональных данных Пользователя осуществляется без ограничения срока, любым законным способом, в том числе в информационных системах персональных данных с использованием средств автоматизации или без использования таких средств.</p>
+          <p>5.2. Пользователь соглашается с тем, что Администрация сайта вправе передавать персональные данные третьим лицам, в частности, курьерским службам, организациями почтовой связи, операторам электросвязи, исключительно в целях выполнения заказа Пользователя, оформленного на Сайте «Время Первых», включая доставку Товара.</p>
+          <p>5.3. Персональные данные Пользователя могут быть переданы уполномоченным органам государственной власти Российской Федерации только по основаниям и в порядке, установленным законодательством Российской Федерации.</p>
+          <p>5.4. При утрате или разглашении персональных данных Администрация сайта информирует Пользователя об утрате или разглашении персональных данных.</p>
+          <p>5.5. Администрация сайта принимает необходимые организационные и технические меры для защиты персональной информации Пользователя от неправомерного или случайного доступа, уничтожения, изменения, блокирования, копирования, распространения, а также от иных неправомерных действий третьих лиц.</p>
+          <h3>6. ОБЯЗАТЕЛЬСТВА СТОРОН</h3>
+          <p>6.1. Пользователь обязан:</p>
+          <p>6.1.1. Предоставить информацию о персональных данных, необходимую для пользования Сайтом.</p>
+          <p>6.1.2. Обновить, дополнить предоставленную информацию о персональных данных в случае изменения данной информации.</p>
+          <p>6.2. Администрация сайта обязана:</p>
+          <p>6.2.1. Использовать полученную информацию исключительно для целей, указанных в п. 4 настоящей Политики конфиденциальности.</p>
+          <p>6.2.2. Обеспечить хранение конфиденциальной информации в тайне, не разглашать без предварительного письменного разрешения Пользователя, а также не осуществлять продажу, обмен, опубликование, либо разглашение иными возможными способами переданных персональных данных Пользователя, за исключением п.п. 5.2. и 5.3. настоящей Политики Конфиденциальности.</p>
+          <p>6.2.3. Принимать меры предосторожности для защиты конфиденциальности персональных данных Пользователя согласно порядку, обычно используемого для защиты такого рода информации в существующем деловом обороте.</p>
+          <p>6.2.4. Осуществить блокирование персональных данных, относящихся к соответствующему Пользователю, с момента обращения или запроса Пользователя или его законного представителя либо уполномоченного органа по защите прав субъектов персональных данных на период проверки, в случае выявления недостоверных персональных данных или неправомерных действий.</p>
+          <h3>7. ОТВЕТСТВЕННОСТЬ СТОРОН</h3>
+          <p>7.1. В случае утраты или разглашения Конфиденциальной информации Администрация сайта не несёт ответственность, если данная конфиденциальная информация:</p>
+          <p>7.1.1. Стала публичным достоянием до её утраты или разглашения.</p>
+          <p>7.1.2. Была получена от третьей стороны до момента её получения Администрацией сайта.</p>
+          <p>7.1.3. Была разглашена с согласия Пользователя.</p>
+          <h3>8. РАЗРЕШЕНИЕ СПОРОВ</h3>
+          <p>8.1. До обращения в суд с иском по спорам, возникающим из отношений между Пользователем сайта и Администрацией сайта, обязательным является предъявление претензии (письменного предложения о добровольном урегулировании спора).</p>
+          <p>8.2. Получатель претензии в течение 30 календарных дней со дня получения претензии, письменно уведомляет заявителя претензии о результатах рассмотрения претензии.</p>
+          <p>8.3. При не достижении соглашения спор будет передан на рассмотрение в судебный орган в соответствии с действующим законодательством Российской Федерации.</p>
+          <p>8.4. К настоящей Политике конфиденциальности и отношениям между Пользователем и Администрацией сайта применяется действующее законодательство Российской Федерации.</p>
+          <h3>9. ДОПОЛНИТЕЛЬНЫЕ УСЛОВИЯ</h3>
+          <p>9.1. Администрация сайта вправе вносить изменения в настоящую Политику конфиденциальности без согласия Пользователя.</p>
+          <p>9.2. Новая Политика конфиденциальности вступает в силу с момента ее размещения на Сайте, если иное не предусмотрено новой редакцией Политики конфиденциальности.</p>
+          <p>9.3. Все предложения или вопросы по настоящей Политике конфиденциальности следует сообщать указать раздел сайта</p>
+          <p>9.4. Действующая Политика конфиденциальности размещена на странице по адресу ak-arkhitektor.ru</p>
+          <p>Для связи с администратором сайта по любым вопросам вы можете написать письмо на e-mail: <a href="mailto: sales@ak-arkhitektor.ru">sales@ak-arkhitektor.ru</a></p>
+        </div>
+      </div>
+    </div>
+    <!-- End modal privacyModal-->
+    <!-- Begin Modal lightbox-->
+    <div class="modal fade lightbox" id="lightbox">
+      <div class="modal-dialog"><a class="modal-close" href="#" data-dismiss="modal"></a>
+        <div class="modal-content"></div>
+      </div>
+    </div>
+    <!-- End modal lightbox-->
+    <script src="js/jquery.js"></script>
+    <script src="vendor/slick-carousel/slick/slick.min.js"></script>
+    <script src="js/modal.js"></script><script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+    <script src="js/intlTelInput.min.js"></script>
+    <script src="vendor/inputmask/dist/inputmask/inputmask.js"></script>
+    <script src="vendor/inputmask/dist/inputmask/jquery.inputmask.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/function.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru-RU&amp;apikey=6c6fa8d9-2f9d-4894-b84d-6491a3c1b9ae" type="text/javascript"></script>
+    <script src="mapData/all.js"></script>
+    <script src="js/maps.js"></script>
+  </body>
+</html>

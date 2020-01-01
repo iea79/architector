@@ -1,0 +1,1505 @@
+.intl-tel-input {
+    position: relative;
+    display: inline-block;
+}
+
+.intl-tel-input * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.intl-tel-input .hide {
+    display: none;
+}
+
+.intl-tel-input .v-hide {
+    visibility: hidden;
+}
+
+.intl-tel-input input,
+.intl-tel-input input[type=tel],
+.intl-tel-input input[type=text] {
+    position: relative;
+    z-index: 0;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-left: 3em;
+    margin-left: 0;
+    transition: background-color 100ms ease-out;
+}
+
+.intl-tel-input input.iti-invalid-key {
+    transition: background-color 0;
+    background-color: #FFC7C7;
+}
+
+.intl-tel-input .flag-dropdown {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding: 0.06em;
+}
+
+.intl-tel-input .flag-dropdown:hover {
+    cursor: pointer;
+}
+
+.intl-tel-input .flag-dropdown:hover .selected-flag {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.intl-tel-input input[disabled]+.flag-dropdown:hover,
+.intl-tel-input input[readonly]+.flag-dropdown:hover {
+    cursor: default;
+}
+
+.intl-tel-input input[disabled]+.flag-dropdown:hover .selected-flag,
+.intl-tel-input input[readonly]+.flag-dropdown:hover .selected-flag {
+    background-color: transparent;
+}
+
+.intl-tel-input .selected-flag {
+    z-index: 1;
+    position: relative;
+    width: 2.625em;
+    height: 100%;
+    padding: 0 0 0 0.5em;
+}
+
+.intl-tel-input .selected-flag .iti-flag {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.intl-tel-input .selected-flag .arrow {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.125em;
+    right: 0.25em;
+    width: 0;
+    height: 0;
+    border-left: 0.1875em solid transparent;
+    border-right: 0.1875em solid transparent;
+    border-top: 0.25em solid #555;
+}
+
+.intl-tel-input .selected-flag .arrow.up {
+    border-top: none;
+    border-bottom: 0.25em solid #555;
+}
+
+.intl-tel-input .country-list {
+    list-style: none;
+    position: absolute;
+    z-index: 2;
+    padding: 0;
+    margin: 0 0 0 -1px;
+    box-shadow: 0.06em 0.06em 0.25em rgba(0,0,0,0.2);
+    background-color: white;
+    border: 0.06em solid #CCC;
+    white-space: nowrap;
+    max-height: 12.5em;
+    overflow-y: scroll;
+}
+
+.intl-tel-input .country-list .flag {
+    display: inline-block;
+    width: 1.25em;
+}
+@media (max-width: 500px) {
+    .intl-tel-input .country-list {
+        white-space: normal;
+    }
+}
+
+.intl-tel-input .country-list .divider {
+    padding-bottom: 0.3125em;
+    margin-bottom: 0.3125em;
+    border-bottom: 0.06em solid #CCC;
+}
+
+.intl-tel-input .country-list .country {
+    padding: 0.3125em 0.625em;
+}
+
+.intl-tel-input .country-list .country .dial-code {
+    color: #999;
+}
+
+.intl-tel-input .country-list .country.highlight {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.intl-tel-input .country-list .country-name,
+.intl-tel-input .country-list .dial-code,
+.intl-tel-input .country-list .flag {
+    vertical-align: middle;
+}
+
+.intl-tel-input .country-list .country-name,
+.intl-tel-input .country-list .flag {
+    margin-right: 0.375em;
+}
+
+.intl-tel-input select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 2.625em;
+    height: 100%;
+    opacity: 0;
+}
+
+.iti-flag {
+    width: 1.25em;
+}
+
+.iti-flag.be {
+    width: 1.125em;
+}
+
+.iti-flag.ch {
+    width: 0.9375em;
+}
+
+.iti-flag.mc {
+    width: 1.1875em;
+}
+
+.iti-flag.ne {
+    width: 1.125em;
+}
+
+.iti-flag.np {
+    width: 0.8125em;
+}
+
+.iti-flag.va {
+    width: 0.9375em;
+}
+// @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+//     .iti-flag {
+//         background-size: 351.875em 0.95em;
+//     }
+// }
+
+.iti-flag.ac {
+    height: 0.625em;
+    background-position: 0 0;
+}
+
+.iti-flag.ad {
+    height: 0.875em;
+    background-position: -1.375em 0;
+}
+
+.iti-flag.ae {
+    height: 0.625em;
+    background-position: -2.75em 0;
+}
+
+.iti-flag.af {
+    height: 0.875em;
+    background-position: -66px 0;
+}
+
+.iti-flag.ag {
+    height: 0.875em;
+    background-position: -88px 0;
+}
+
+.iti-flag.ai {
+    height: 0.625em;
+    background-position: -1010px 0;
+}
+
+.iti-flag.al {
+    height: 0.9375em;
+    background-position: -132px 0;
+}
+
+.iti-flag.am {
+    height: 0.625em;
+    background: url("../img/flag/am.png") 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.iti-flag.ao {
+    height: 0.875em;
+    background-position: -176px 0;
+}
+
+.iti-flag.aq {
+    height: 0.875em;
+    background-position: -198px 0;
+}
+
+.iti-flag.ar {
+    height: 0.8125em;
+    background-position: -220px 0;
+}
+
+.iti-flag.as {
+    height: 0.625em;
+    background-position: -242px 0;
+}
+
+.iti-flag.at {
+    height: 0.875em;
+    background-position: -264px 0;
+}
+
+.iti-flag.au {
+    height: 0.625em;
+    background-position: -286px 0;
+}
+
+.iti-flag.aw {
+    height: 0.875em;
+    background-position: -308px 0;
+}
+
+.iti-flag.ax {
+    height: 0.8125em;
+    background-position: -330px 0;
+}
+
+.iti-flag.az {
+    height: 0.625em;
+    background: url("../img/flag/az.png") 0 0 no-repeat;
+    background-size: 100%;
+}
+
+.iti-flag.ba {
+    height: 0.625em;
+    background-position: -374px 0;
+}
+
+.iti-flag.bb {
+    height: 0.875em;
+    background-position: -396px 0;
+}
+
+.iti-flag.bd {
+    height: 0.75em;
+    background-position: -418px 0;
+}
+
+.iti-flag.be {
+    height: 0.9375em;
+    background-position: -440px 0;
+}
+
+.iti-flag.bf {
+    height: 0.875em;
+    background-position: -460px 0;
+}
+
+.iti-flag.bg {
+    height: 0.75em;
+    background-position: -482px 0;
+}
+
+.iti-flag.bh {
+    height: 0.75em;
+    background-position: -504px 0;
+}
+
+.iti-flag.bi {
+    height: 0.75em;
+    background-position: -526px 0;
+}
+
+.iti-flag.bj {
+    height: 0.875em;
+    background-position: -548px 0;
+}
+
+.iti-flag.bl {
+    height: 0.875em;
+    background-position: -570px 0;
+}
+
+.iti-flag.bm {
+    height: 0.625em;
+    background-position: -592px 0;
+}
+
+.iti-flag.bn {
+    height: 0.625em;
+    background-position: -6014px 0;
+}
+
+.iti-flag.bo {
+    height: 0.875em;
+    background-position: -636px 0;
+}
+
+.iti-flag.bq {
+    height: 0.875em;
+    background-position: -658px 0;
+}
+
+.iti-flag.br {
+    height: 0.875em;
+    background-position: -680px 0;
+}
+
+.iti-flag.bs {
+    height: 0.625em;
+    background-position: -702px 0;
+}
+
+.iti-flag.bt {
+    height: 0.875em;
+    background-position: -724px 0;
+}
+
+.iti-flag.bv {
+    height: 0.9375em;
+    background-position: -746px 0;
+}
+
+.iti-flag.bw {
+    height: 0.875em;
+    background-position: -768px 0;
+}
+
+.iti-flag.by {
+    height: 0.625em;
+    background: url("../img/flag/by.jpg") 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.iti-flag.bz {
+    height: 0.875em;
+    background-position: -812px 0;
+}
+
+.iti-flag.ca {
+    height: 0.625em;
+    background-position: -834px 0;
+}
+
+.iti-flag.cc {
+    height: 0.625em;
+    background-position: -856px 0;
+}
+
+.iti-flag.cd {
+    height: 0.9375em;
+    background-position: -878px 0;
+}
+
+.iti-flag.cf {
+    height: 0.875em;
+    background-position: -900px 0;
+}
+
+.iti-flag.cg {
+    height: 0.875em;
+    background-position: -922px 0;
+}
+
+.iti-flag.ch {
+    height: 0.9375em;
+    background-position: -944px 0;
+}
+
+.iti-flag.ci {
+    height: 0.875em;
+    background-position: -961px 0;
+}
+
+.iti-flag.ck {
+    height: 0.625em;
+    background-position: -983px 0;
+}
+
+.iti-flag.cl {
+    height: 0.875em;
+    background-position: -1005px 0;
+}
+
+.iti-flag.cm {
+    height: 0.875em;
+    background-position: -1027px 0;
+}
+
+.iti-flag.cn {
+    height: 0.875em;
+    background-position: -1049px 0;
+}
+
+.iti-flag.co {
+    height: 0.875em;
+    background-position: -1071px 0;
+}
+
+.iti-flag.cp {
+    height: 0.875em;
+    background-position: -1093px 0;
+}
+
+.iti-flag.cr {
+    height: 0.75em;
+    background-position: -11015px 0;
+}
+
+.iti-flag.cu {
+    height: 0.625em;
+    background-position: -1137px 0;
+}
+
+.iti-flag.cv {
+    height: 0.75em;
+    background-position: -1159px 0;
+}
+
+.iti-flag.cw {
+    height: 0.875em;
+    background-position: -1181px 0;
+}
+
+.iti-flag.cx {
+    height: 0.625em;
+    background-position: -1203px 0;
+}
+
+.iti-flag.cy {
+    height: 0.875em;
+    background-position: -1225px 0;
+}
+
+.iti-flag.cz {
+    height: 0.875em;
+    background-position: -1247px 0;
+}
+
+.iti-flag.de {
+    height: 0.75em;
+    background-position: -1269px 0;
+}
+
+.iti-flag.dg {
+    height: 0.625em;
+    background-position: -1291px 0;
+}
+
+.iti-flag.dj {
+    height: 0.875em;
+    background-position: -1313px 0;
+}
+
+.iti-flag.dk {
+    height: 0.9375em;
+    background-position: -1335px 0;
+}
+
+.iti-flag.dm {
+    height: 0.625em;
+    background-position: -1357px 0;
+}
+
+.iti-flag.do {
+    height: 0.8125em;
+    background-position: -1379px 0;
+}
+
+.iti-flag.dz {
+    height: 0.875em;
+    background-position: -1401px 0;
+}
+
+.iti-flag.ea {
+    height: 0.875em;
+    background-position: -1423px 0;
+}
+
+.iti-flag.ec {
+    height: 0.875em;
+    background-position: -1445px 0;
+}
+
+.iti-flag.ee {
+    height: 0.8125em;
+    background: url("../img/flag/ee.png") 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.iti-flag.eg {
+    height: 0.875em;
+    background-position: -1489px 0;
+}
+
+.iti-flag.eh {
+    height: 0.625em;
+    background-position: -1511px 0;
+}
+
+.iti-flag.er {
+    height: 0.625em;
+    background-position: -1533px 0;
+}
+
+.iti-flag.es {
+    height: 0.875em;
+    background-position: -1555px 0;
+}
+
+.iti-flag.et {
+    height: 0.625em;
+    background-position: -1577px 0;
+}
+
+.iti-flag.eu {
+    height: 0.875em;
+    background-position: -1599px 0;
+}
+
+.iti-flag.fi {
+    height: 0.75em;
+    background-position: -1621px 0;
+}
+
+.iti-flag.fj {
+    height: 0.625em;
+    background-position: -1643px 0;
+}
+
+.iti-flag.fk {
+    height: 0.625em;
+    background-position: -1665px 0;
+}
+
+.iti-flag.fm {
+    height: 11px;
+    background-position: -1687px 0;
+}
+
+.iti-flag.fo {
+    height: 0.9375em;
+    background-position: -1709px 0;
+}
+
+.iti-flag.fr {
+    height: 0.875em;
+    background-position: -1731px 0;
+}
+
+.iti-flag.ga {
+    height: 0.9375em;
+    background-position: -1753px 0;
+}
+
+.iti-flag.gb {
+    height: 0.625em;
+    background-position: -1775px 0;
+}
+
+.iti-flag.gd {
+    height: 0.75em;
+    background-position: -1797px 0;
+}
+
+.iti-flag.ge {
+    height: 0.875em;
+    background-position: -1819px 0;
+}
+
+.iti-flag.gf {
+    height: 0.875em;
+    background-position: -1841px 0;
+}
+
+.iti-flag.gg {
+    height: 0.875em;
+    background-position: -1863px 0;
+}
+
+.iti-flag.gh {
+    height: 0.875em;
+    background-position: -1885px 0;
+}
+
+.iti-flag.gi {
+    height: 0.625em;
+    background-position: -1907px 0;
+}
+
+.iti-flag.gl {
+    height: 0.875em;
+    background-position: -1929px 0;
+}
+
+.iti-flag.gm {
+    height: 0.875em;
+    background-position: -1951px 0;
+}
+
+.iti-flag.gn {
+    height: 0.875em;
+    background-position: -1973px 0;
+}
+
+.iti-flag.gp {
+    height: 0.875em;
+    background-position: -1995px 0;
+}
+
+.iti-flag.gq {
+    height: 0.875em;
+    background-position: -2017px 0;
+}
+
+.iti-flag.gr {
+    height: 0.875em;
+    background-position: -2039px 0;
+}
+
+.iti-flag.gs {
+    height: 0.625em;
+    background-position: -2061px 0;
+}
+
+.iti-flag.gt {
+    height: 0.8125em;
+    background-position: -2083px 0;
+}
+
+.iti-flag.gu {
+    height: 11px;
+    background-position: -2105px 0;
+}
+
+.iti-flag.gw {
+    height: 0.625em;
+    background-position: -2127px 0;
+}
+
+.iti-flag.gy {
+    height: 0.75em;
+    background-position: -2149px 0;
+}
+
+.iti-flag.hk {
+    height: 0.875em;
+    background-position: -2171px 0;
+}
+
+.iti-flag.hm {
+    height: 0.625em;
+    background-position: -2193px 0;
+}
+
+.iti-flag.hn {
+    height: 0.625em;
+    background-position: -22012em 0;
+}
+
+.iti-flag.hr {
+    height: 0.625em;
+    background-position: -2237px 0;
+}
+
+.iti-flag.ht {
+    height: 0.75em;
+    background-position: -2259px 0;
+}
+
+.iti-flag.hu {
+    height: 0.625em;
+    background-position: -2281px 0;
+}
+
+.iti-flag.ic {
+    height: 0.875em;
+    background-position: -2303px 0;
+}
+
+.iti-flag.id {
+    height: 0.875em;
+    background-position: -2325px 0;
+}
+
+.iti-flag.ie {
+    height: 0.625em;
+    background-position: -2347px 0;
+}
+
+.iti-flag.il {
+    height: 0.9375em;
+    background-position: -2369px 0;
+}
+
+.iti-flag.im {
+    height: 0.625em;
+    background-position: -2391px 0;
+}
+
+.iti-flag.in {
+    height: 0.875em;
+    background-position: -2413px 0;
+}
+
+.iti-flag.io {
+    height: 0.625em;
+    background-position: -2435px 0;
+}
+
+.iti-flag.iq {
+    height: 0.875em;
+    background-position: -2457px 0;
+}
+
+.iti-flag.ir {
+    height: 0.75em;
+    background-position: -2479px 0;
+}
+
+.iti-flag.is {
+    height: 0.9375em;
+    background-position: -2501px 0;
+}
+
+.iti-flag.it {
+    height: 0.875em;
+    background-position: -2523px 0;
+}
+
+.iti-flag.je {
+    height: 0.75em;
+    background-position: -2545px 0;
+}
+
+.iti-flag.jm {
+    height: 0.625em;
+    background-position: -2567px 0;
+}
+
+.iti-flag.jo {
+    height: 0.625em;
+    background-position: -2589px 0;
+}
+
+.iti-flag.jp {
+    height: 0.875em;
+    background-position: -2611px 0;
+}
+
+.iti-flag.ke {
+    height: 0.875em;
+    background-position: -2633px 0;
+}
+
+.iti-flag.kg {
+    height: 0.75em;
+    background: url("../img/flag/kg.gif") 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.iti-flag.kh {
+    height: 0.8125em;
+    background-position: -2677px 0;
+}
+
+.iti-flag.ki {
+    height: 0.625em;
+    background-position: -2699px 0;
+}
+
+.iti-flag.km {
+    height: 0.75em;
+    background-position: -2721px 0;
+}
+
+.iti-flag.kn {
+    height: 0.875em;
+    background-position: -2743px 0;
+}
+
+.iti-flag.kp {
+    height: 0.625em;
+    background-position: -2765px 0;
+}
+
+.iti-flag.kr {
+    height: 0.875em;
+    background-position: -2787px 0;
+}
+
+.iti-flag.kw {
+    height: 0.625em;
+    background-position: -2809px 0;
+}
+
+.iti-flag.ky {
+    height: 0.625em;
+    background-position: -2831px 0;
+}
+
+.iti-flag.kz {
+    height: 0.625em;
+    background: url("../img/flag/kz.jpg") 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.iti-flag.la {
+    height: 0.875em;
+    background-position: -2875px 0;
+}
+
+.iti-flag.lb {
+    height: 0.875em;
+    background-position: -2897px 0;
+}
+
+.iti-flag.lc {
+    height: 0.625em;
+    background-position: -2919px 0;
+}
+
+.iti-flag.li {
+    height: 0.75em;
+    background-position: -2941px 0;
+}
+
+.iti-flag.lk {
+    height: 0.625em;
+    background-position: -2963px 0;
+}
+
+.iti-flag.lr {
+    height: 11px;
+    background-position: -2985px 0;
+}
+
+.iti-flag.ls {
+    height: 0.875em;
+    background-position: -3007px 0;
+}
+
+.iti-flag.lt {
+    height: 0.75em;
+    background: url("../img/flag/lt.png") 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.iti-flag.lu {
+    height: 0.75em;
+    background-position: -3051px 0;
+}
+
+.iti-flag.lv {
+    height: 0.625em;
+    background: url("../img/flag/lv.png") 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.iti-flag.ly {
+    height: 0.625em;
+    background-position: -3095px 0;
+}
+
+.iti-flag.ma {
+    height: 0.875em;
+    background-position: -3117px 0;
+}
+
+.iti-flag.mc {
+    height: 0.9375em;
+    background-position: -3139px 0;
+}
+
+.iti-flag.md {
+    height: 0.625em;
+    background: url("../img/flag/md.png") 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.iti-flag.me {
+    height: 0.625em;
+    background-position: -3182px 0;
+}
+
+.iti-flag.mf {
+    height: 0.875em;
+    background-position: -3204px 0;
+}
+
+.iti-flag.mg {
+    height: 0.875em;
+    background-position: -3226px 0;
+}
+
+.iti-flag.mh {
+    height: 11px;
+    background-position: -3248px 0;
+}
+
+.iti-flag.mk {
+    height: 0.625em;
+    background-position: -3270px 0;
+}
+
+.iti-flag.ml {
+    height: 0.875em;
+    background-position: -3292px 0;
+}
+
+.iti-flag.mm {
+    height: 0.875em;
+    background-position: -330.875em 0;
+}
+
+.iti-flag.mn {
+    height: 0.625em;
+    background-position: -3336px 0;
+}
+
+.iti-flag.mo {
+    height: 0.875em;
+    background-position: -3358px 0;
+}
+
+.iti-flag.mp {
+    height: 0.625em;
+    background-position: -3380px 0;
+}
+
+.iti-flag.mq {
+    height: 0.875em;
+    background-position: -3402px 0;
+}
+
+.iti-flag.mr {
+    height: 0.875em;
+    background-position: -3424px 0;
+}
+
+.iti-flag.ms {
+    height: 0.625em;
+    background-position: -3446px 0;
+}
+
+.iti-flag.mt {
+    height: 0.875em;
+    background-position: -3468px 0;
+}
+
+.iti-flag.mu {
+    height: 0.875em;
+    background-position: -3490px 0;
+}
+
+.iti-flag.mv {
+    height: 0.875em;
+    background-position: -3512px 0;
+}
+
+.iti-flag.mw {
+    height: 0.875em;
+    background-position: -3534px 0;
+}
+
+.iti-flag.mx {
+    height: 0.75em;
+    background-position: -3556px 0;
+}
+
+.iti-flag.my {
+    height: 0.625em;
+    background-position: -3578px 0;
+}
+
+.iti-flag.mz {
+    height: 0.875em;
+    background-position: -3600px 0;
+}
+
+.iti-flag.na {
+    height: 0.875em;
+    background-position: -3622px 0;
+}
+
+.iti-flag.nc {
+    height: 0.625em;
+    background-position: -3644px 0;
+}
+
+.iti-flag.ne {
+    height: 0.9375em;
+    background-position: -3666px 0;
+}
+
+.iti-flag.nf {
+    height: 0.625em;
+    background-position: -3686px 0;
+}
+
+.iti-flag.ng {
+    height: 0.625em;
+    background-position: -3708px 0;
+}
+
+.iti-flag.ni {
+    height: 0.75em;
+    background-position: -3730px 0;
+}
+
+.iti-flag.nl {
+    height: 0.875em;
+    background-position: -3752px 0;
+}
+
+.iti-flag.no {
+    height: 0.9375em;
+    background-position: -3774px 0;
+}
+
+.iti-flag.np {
+    height: 0.9375em;
+    background-position: -3796px 0;
+}
+
+.iti-flag.nr {
+    height: 0.625em;
+    background-position: -3811px 0;
+}
+
+.iti-flag.nu {
+    height: 0.625em;
+    background-position: -3833px 0;
+}
+
+.iti-flag.nz {
+    height: 0.625em;
+    background-position: -3855px 0;
+}
+
+.iti-flag.om {
+    height: 0.625em;
+    background-position: -3877px 0;
+}
+
+.iti-flag.pa {
+    height: 0.875em;
+    background-position: -3899px 0;
+}
+
+.iti-flag.pe {
+    height: 0.875em;
+    background-position: -3921px 0;
+}
+
+.iti-flag.pf {
+    height: 0.875em;
+    background-position: -3943px 0;
+}
+
+.iti-flag.pg {
+    height: 0.9375em;
+    background-position: -3965px 0;
+}
+
+.iti-flag.ph {
+    height: 0.625em;
+    background-position: -3987px 0;
+}
+
+.iti-flag.pk {
+    height: 0.875em;
+    background-position: -4009px 0;
+}
+
+.iti-flag.pl {
+    height: 0.8125em;
+    background-position: -4031px 0;
+}
+
+.iti-flag.pm {
+    height: 0.875em;
+    background-position: -4053px 0;
+}
+
+.iti-flag.pn {
+    height: 0.625em;
+    background-position: -4075px 0;
+}
+
+.iti-flag.pr {
+    height: 0.875em;
+    background-position: -4097px 0;
+}
+
+.iti-flag.ps {
+    height: 0.625em;
+    background-position: -4119px 0;
+}
+
+.iti-flag.pt {
+    height: 0.875em;
+    background-position: -4141px 0;
+}
+
+.iti-flag.pw {
+    height: 0.8125em;
+    background-position: -4163px 0;
+}
+
+.iti-flag.py {
+    height: 11px;
+    background-position: -4185px 0;
+}
+
+.iti-flag.qa {
+    height: 8px;
+    background-position: -4207px 0;
+}
+
+.iti-flag.re {
+    height: 0.875em;
+    background-position: -4229px 0;
+}
+
+.iti-flag.ro {
+    height: 0.875em;
+    background-position: -4251px 0;
+}
+
+.iti-flag.rs {
+    height: 0.875em;
+    background-position: -4273px 0;
+}
+
+.iti-flag.ru {
+    height: 0.875em;
+    background: url("../img/flag/ru.png") 0 0 no-repeat;
+    background-size: 100%;
+}
+
+.iti-flag.rw {
+    height: 0.875em;
+    background-position: -4317px 0;
+}
+
+.iti-flag.sa {
+    height: 0.875em;
+    background-position: -4339px 0;
+}
+
+.iti-flag.sb {
+    height: 0.625em;
+    background-position: -4361px 0;
+}
+
+.iti-flag.sc {
+    height: 0.625em;
+    background-position: -4383px 0;
+}
+
+.iti-flag.sd {
+    height: 0.625em;
+    background-position: -4405px 0;
+}
+
+.iti-flag.se {
+    height: 0.8125em;
+    background-position: -4427px 0;
+}
+
+.iti-flag.sg {
+    height: 0.875em;
+    background-position: -4449px 0;
+}
+
+.iti-flag.sh {
+    height: 0.625em;
+    background-position: -4471px 0;
+}
+
+.iti-flag.si {
+    height: 0.625em;
+    background-position: -4493px 0;
+}
+
+.iti-flag.sj {
+    height: 0.9375em;
+    background-position: -450.9375em 0;
+}
+
+.iti-flag.sk {
+    height: 0.875em;
+    background-position: -4537px 0;
+}
+
+.iti-flag.sl {
+    height: 0.875em;
+    background-position: -4559px 0;
+}
+
+.iti-flag.sm {
+    height: 0.9375em;
+    background-position: -4581px 0;
+}
+
+.iti-flag.sn {
+    height: 0.875em;
+    background-position: -4603px 0;
+}
+
+.iti-flag.so {
+    height: 0.875em;
+    background-position: -4625px 0;
+}
+
+.iti-flag.sr {
+    height: 0.875em;
+    background-position: -4647px 0;
+}
+
+.iti-flag.ss {
+    height: 0.625em;
+    background-position: -4669px 0;
+}
+
+.iti-flag.st {
+    height: 0.625em;
+    background-position: -4691px 0;
+}
+
+.iti-flag.sv {
+    height: 0.75em;
+    background-position: -4713px 0;
+}
+
+.iti-flag.sx {
+    height: 0.875em;
+    background-position: -4735px 0;
+}
+
+.iti-flag.sy {
+    height: 0.875em;
+    background-position: -4757px 0;
+}
+
+.iti-flag.sz {
+    height: 0.875em;
+    background-position: -4779px 0;
+}
+
+.iti-flag.ta {
+    height: 0.625em;
+    background-position: -4801px 0;
+}
+
+.iti-flag.tc {
+    height: 0.625em;
+    background-position: -4823px 0;
+}
+
+.iti-flag.td {
+    height: 0.875em;
+    background-position: -4845px 0;
+}
+
+.iti-flag.tf {
+    height: 0.875em;
+    background-position: -4867px 0;
+}
+
+.iti-flag.tg {
+    height: 0.8125em;
+    background-position: -4889px 0;
+}
+
+.iti-flag.th {
+    height: 0.875em;
+    background-position: -4911px 0;
+}
+
+.iti-flag.tj {
+    height: 0.625em;
+    background: url("../img/flag/tj.png") 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.iti-flag.tk {
+    height: 0.625em;
+    background-position: -4955px 0;
+}
+
+.iti-flag.tl {
+    height: 0.625em;
+    background-position: -4977px 0;
+}
+
+.iti-flag.tm {
+    height: 0.875em;
+    background: url("../img/flag/tm.png") 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.iti-flag.tn {
+    height: 0.875em;
+    background-position: -5021px 0;
+}
+
+.iti-flag.to {
+    height: 0.625em;
+    background-position: -5043px 0;
+}
+
+.iti-flag.tr {
+    height: 0.875em;
+    background-position: -5065px 0;
+}
+
+.iti-flag.tt {
+    height: 0.75em;
+    background-position: -5087px 0;
+}
+
+.iti-flag.tv {
+    height: 0.625em;
+    background-position: -5109px 0;
+}
+
+.iti-flag.tw {
+    height: 0.875em;
+    background-position: -5131px 0;
+}
+
+.iti-flag.tz {
+    height: 0.875em;
+    background-position: -5153px 0;
+}
+
+.iti-flag.ua {
+    height: 0.875em;
+    background: url("../img/flag/ua.jpg") 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.iti-flag.ug {
+    height: 0.875em;
+    background-position: -5197px 0;
+}
+
+.iti-flag.um {
+    height: 11px;
+    background-position: -5219px 0;
+}
+
+.iti-flag.us {
+    height: 11px;
+    background-position: -5241px 0;
+}
+
+.iti-flag.uy {
+    height: 0.875em;
+    background-position: -5263px 0;
+}
+
+.iti-flag.uz {
+    height: 0.625em;
+    background: url("../img/flag/uz.png") 0 0 no-repeat;
+    background-size: 100% 100%;
+}
+
+.iti-flag.va {
+    height: 0.9375em;
+    background-position: -5307px 0;
+}
+
+.iti-flag.vc {
+    height: 0.875em;
+    background-position: -5324px 0;
+}
+
+.iti-flag.ve {
+    height: 0.875em;
+    background-position: -5346px 0;
+}
+
+.iti-flag.vg {
+    height: 0.625em;
+    background-position: -5368px 0;
+}
+
+.iti-flag.vi {
+    height: 0.875em;
+    background-position: -5390px 0;
+}
+
+.iti-flag.vn {
+    height: 0.875em;
+    background-position: -5412px 0;
+}
+
+.iti-flag.vu {
+    height: 0.75em;
+    background-position: -5434px 0;
+}
+
+.iti-flag.wf {
+    height: 0.875em;
+    background-position: -5456px 0;
+}
+
+.iti-flag.ws {
+    height: 0.625em;
+    background-position: -5478px 0;
+}
+
+.iti-flag.xk {
+    height: 0.9375em;
+    background-position: -5500px 0;
+}
+
+.iti-flag.ye {
+    height: 0.875em;
+    background-position: -5522px 0;
+}
+
+.iti-flag.yt {
+    height: 0.875em;
+    background-position: -5544px 0;
+}
+
+.iti-flag.za {
+    height: 0.875em;
+    background-position: -5566px 0;
+}
+
+.iti-flag.zm {
+    height: 0.875em;
+    background-position: -5588px 0;
+}
+
+.iti-flag.zw {
+    height: 0.625em;
+    background-position: -560.625em 0;
+}
+
+.iti-flag {
+    width: 20px;
+    height: 0.9375em;
+    box-shadow: 0 0 1px 0 #888;
+    background-image: url("../img/flags.png");
+    background-repeat: no-repeat;
+    background-color: #DBDBDB;
+    background-position: 20px 0;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    .iti-flag {
+        background-image: url("../img/flags@2x.png");
+    }
+}
+
+.iti-flag.np {
+    background-color: transparent;
+}

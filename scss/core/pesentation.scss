@@ -1,0 +1,214 @@
+.pesentation {
+    // padding-top: 9.4em;
+    padding-bottom: 14.2em;
+    margin-bottom: -7.9em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    @media (min-width: 768px) {
+        padding-bottom: 30.2em;
+        background: url("../img/pesentation-bg.png") center no-repeat;
+        background-size: auto 100%;
+    }
+
+    @media (min-width: 768px) {
+        padding-top: 9.9em;
+        padding-bottom: 30.2em;
+        margin-bottom: -7.9em;
+    }
+
+    @media (max-width: 767px) {
+        margin-top: -9em;
+    }
+
+    > img {
+        position: absolute;
+        top: 6.3em;
+        right: -7.1em;
+        width: 36.7em;
+        display: block;
+        max-width: none;
+        // z-index: 1;
+
+        @media (min-width: 768px) {
+            top: 0;
+            right: -2.1em;
+            width: 81.7em;
+        }
+        @media (max-width: 767px) {
+            z-index: -1;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+
+        @media (min-width: 768px) {
+            flex-direction: row;
+        }
+        // justify-content: flex-end;
+    }
+
+    .section__title {
+        font-size: 1.7em;
+        margin-bottom: 0.85em;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0.001em;
+
+        @media (min-width: 768px) {
+            font-size: 2.7em;
+            letter-spacing: 0.01em;
+            line-height: 1.3;
+        }
+
+        @media (max-width: 767px) {
+            order: 0;
+        }
+    }
+
+    &__form {
+        @media (min-width: 768px) {
+            max-width: 36em;
+            flex: none;
+            margin-left: -0.5em;
+
+            .form {
+                max-width: 26.7em;
+            }
+
+        }
+
+        @media (max-width: 767px) {
+            order: 2;
+            background-color: #181818;
+            padding: 0 0.8em 1.7em;
+            border-radius: 0.6em;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex: none;
+        align-items: center;
+
+        @media (min-width: 768px) {
+            flex-direction: column;
+            margin-right: 11.2em;
+            align-self: center;
+        }
+
+        @media (max-width: 767px) {
+            margin-top: -0.2em;
+            margin-bottom: 5.4em;
+            order: 1;
+            justify-content: flex-end;
+        }
+    }
+
+    &__pdf {
+        img {
+            width: 3.1em;
+
+            @media (min-width: 768px) {
+                width: 2.6em;
+            }
+        }
+    }
+
+    &__time {
+        max-width: 5em;
+        font-family: "IBM Plex Sans";
+        font-size: 1em;
+        text-align: center;
+        color: #dab333;
+        line-height: 1.5;
+
+        @media (min-width: 768px) {
+            font-size: 0.813em;
+            margin-top: 2em;
+
+        }
+
+        @media (max-width: 767px) {
+            margin-right: 1.4em;
+            margin-left: 3.1em;
+        }
+    }
+
+    &__descr {
+        // margin-top: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        @media (min-width: 768px) {
+            margin-right: -1.4em;
+        }
+    }
+
+    &__text {
+        padding: 3.9em 0 2.2em;
+        position: relative;
+        background: url("../img/pesentation-desc.png") 0 0 no-repeat;
+        background-size: 100% 100%;
+
+        @media (min-width: 768px) {
+            padding: 2.8em 1.8em;
+            bottom: -0.3em;
+        }
+
+        @media (max-width: 767px) {
+            font-size: 0.8em;
+        }
+    }
+
+    &__name {
+        font-size: 1.5em;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 1.6em;
+        line-height: 1.5;
+
+        @media (min-width: 768px) {
+            // font-size: 1.5em;
+            margin-bottom: 0.6em;
+        }
+
+        @media (max-width: 767px) {
+            padding: 0 1em;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0 0 0 0.6em;
+        margin: 0;
+        counter-reset: present;
+        font-size: 1.15em;
+        line-height: 1.45;
+
+        @media (min-width: 768px) {
+            font-size: 1.1em;
+        }
+
+        li {
+            counter-increment: present;
+            display: flex;
+            margin-bottom: 0.6em;
+
+            &:before {
+                content: counter(present) '/';
+                color: #f8cc54;
+                margin-right: 0.5em;
+                font-size: 1em;
+                line-height: 1;
+                position: relative;
+                bottom: -0.3em;
+            }
+        }
+    }
+
+}

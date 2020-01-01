@@ -1,8 +1,12 @@
 // Main wrappers =====================================
 
 body {
-	display: flex;
-	flex-direction: column;
+
+	@media (min-width: 768px) {
+		display: flex;
+		flex-direction: column;
+
+	}
 }
 
 .wrapper {
@@ -16,11 +20,12 @@ body {
 	flex-grow: 1;
 	// padding-bottom: $footer_height;
 	// @extend %clear_a;
+	position: relative;
 }
 
 .container_center {
 	max-width: $container_width;
-	padding: 0 15px;
+	padding: 0 1em;
 	margin-left: auto;
 	margin-right: auto;
 }

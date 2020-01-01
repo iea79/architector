@@ -1,3 +1,6 @@
+block variables
+    -var version = '2.1';
+
 <!DOCTYPE html>
 html(lang="en")
     head
@@ -6,35 +9,669 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         title Document
 
-        link(rel="stylesheet", type="text/css", href="css/style.css")
+        link(rel="stylesheet", type="text/css", href="vendor/slick-carousel/slick/slick.css")
+        link(rel="stylesheet", type="text/css", href="css/jquery.fancybox.min.css")
+        link(rel="stylesheet", type="text/css", href="css/style.css?"+version+"")
     body
         header.header
             .header__content
                 .header__left
                     a.logo(href="/")
                         img(src="img/logo.png", alt="alt")
-                nav.header__right
-                    ul.navbar
-                        - var n = 0;
-                        -for (i=0; i<5; i++) {
-                            li.navbar__item
-                                a.navbar__link(href="#") Page #{i}
-                        -};
-                        //- while n < 6
-                        //-     li.navbar__item
-                        //-         a.navbar__link(href="#")= "Page " + n++
+                        span.logo__descr Официальный сайт комплекса апартаментов «Архитектор»
+                .header__right
+                    .header__build
+                        .flag Сдача объекта 
+                        .header__buildDate  декабрь 2020 года
+                    .header__soc.soc
+                        a.icon.icon_whatsapp(href="#")
+                        a.icon.icon_telegram(href="#")
+                        a.icon.icon_viber(href="#")
+                    .header__contact
+                        .header__contactTitle Звонок по РФ бесплатный
+                        a.header__contactTel(href="tel: 8 800 333 25 33")
+                            span 8 800 333 25 33
+                            i
+                        a.header__callback(href="#" data-toggle="modal" data-target="#callback" data-subject="Перезвонить мне") Перезвонить вам?
+
 
         main.main_content
-            .container_center
+            // begin firstScreen
+            section#firstScreen.firstScreen
+                .container_center
+                    .firstScreen__content
+                        .firstScreen__left
+                            .firstScreen__counts
+                                .firstScreen__countsItem
+                                    .firstScreen__num 78
+                                    |Апартаментов
+                                    span премиум-класса
+                                .firstScreen__countsItem
+                                    .firstScreen__num 6
+                                    |Двухуровневых апартаментов 
+                        .firstScreen__right
+                            h2.section__title «Архитектор» — комплекс апартаментов премиум-класса в Сочи
 
-                .grid
-                    .grid__item Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, in.
-                    .grid__item Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo numquam sequi officiis. Quia sed modi voluptatem, aut rem possimus at ipsa nobis iure non corporis nulla suscipit praesentium quos numquam quasi magni delectus eius illo, harum hic id! Laboriosam culpa recusandae nesciunt ab natus molestiae porro reiciendis, eveniet architecto temporibus!
-                    .grid__item Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt fugiat, pariatur, explicabo ut quidem deleniti velit sed error dolor! Voluptates dignissimos consectetur repudiandae ipsam. Iusto, rerum, quam! Corporis, nisi, inventore?
+                            .firstScreen__action
+                                img.firstScreen__paper(src="img/fpaper.png", alt="alt")
+                                button.btn(type="button" data-toggle="modal" data-target="#upload" data-subject="Скачать презентацию") Скачать подробную презентацию
+                                .firstScreen__actionSub Время загрузки — 4 секунды
+
+                .firstScreen__shadow
+
+            // end firstScreen
+
+            // begin details
+            section#details.details.section
+                .container_center
+                    .details__top
+                        .flag Концепция жизни
+                        h2.section__title Забота о жителях <br>в мельчайших деталях
+
+                        .details__thumbs
+                            -var details = ['Лобби-бар и коворкинг', 'Фитнес-клуб премиум класса', 'Консьерж-сервис 24/7', 'Салон красоты', 'Услуги клининга', 'Сквер для прогулок и отдыха', 'Wellness-зона: СПА и массаж', 'Услуги портных и химчистка', 'Спортивная площадка', '2 ресторана', 'Room-service из ресторана', 'Детская площадка', 'Кофейня', 'Охраняемая территория', 'Сервис водителей'];
+
+                            each item, i in details
+                                .details__item
+                                    .details__img
+                                        img(src="img/datails-"+(i+1)+".png", alt= item.name)
+                                    .details__name= item
+
+                    .detailsInfo
+                        .detailsInfo__item
+                            .detailsInfo__name Общая площадь апартаментов
+                            .detailsInfo__value 5 817
+                                small м
+                                    i 2
+                        .detailsInfo__item
+                            .detailsInfo__name Количество этажей
+                            .detailsInfo__value 6
+                                small этажей
+                        .detailsInfo__item
+                            .detailsInfo__name Площадь апартаментов
+                            .detailsInfo__value 22,4 — 112,5
+                                small м
+                                    i 2
+
+
+                // begin collage
+                .collage
+                    .collage__item
+                        a(href="img/apartmet.jpg" data-fancybox="collage")
+                            img(src="img/collag-1.jpg", alt="")
+                    .collage__item
+                        a(href="img/apartmet.jpg" data-fancybox="collage")
+                            img(src="img/collag-2.jpg", alt="")
+                    .collage__item
+                        a(href="img/apartmet.jpg" data-fancybox="collage")
+                            img(src="img/collag-3.jpg", alt="")
+                        a(href="img/collag-4.jpg" data-fancybox="collage")
+                            img(src="img/collag-4.jpg", alt="")
+                    .collage__item
+                        a(href="img/collag-5.jpg" data-fancybox="collage")
+                            img(src="img/collag-5.jpg", alt="")
+                .collage.collage_mob
+                    .collage__item
+                        img(src="img/collag-1.jpg", alt="")
+                    .collage__item
+                        img(src="img/collag-2.jpg", alt="")
+                    .collage__item
+                        img(src="img/collag-5.jpg", alt="")
+
+                // end collage
+
+            // end details
+
+            // begin pesentation
+            section#pesentation.pesentation
+                img.desktop(src="img/presentation.png", alt="")
+                img.mobile(src="img/presentation-mob.png", alt="")
+
+                .container_center.pesentation__content
+                    .pesentation__form
+                        h2.section__title Получите подробную презентацию комплекса прямо сейчас
+                        form.form(action="send.php" method="method")
+                            input(type="hidden" name="subject" value="Получить презентацию")
+                            .form__row
+                                input(type="text", name="email" placeholder="Введите ваш E-mail" required)
+                            .form__row
+                                input(type="tel", name="tel" placeholder="" required)
+                            .form__row
+                                button.btn(type="submit") Получить презентацию
+                            .form__privacy
+                                label
+                                    input(type="checkbox" checked) 
+                                    span Я ознакомился с 
+                                        a(href="#" data-dismiss="modal" data-toggle="modal" data-target="#privacyModal") политикой конфиденциальности  обработки персональных данных
+
+                    .pesentation__info
+                        .pesentation__pdf
+                            img(src="img/pdf.png", alt="")
+                        .pesentation__time Время загрузки 4 сек.
+
+                    .pesentation__descr
+                        .pesentation__text
+                            .pesentation__name Что содержит в себе подробная презентация комплекса «Архитектор»
+                            ol.pesentation__list
+                                li Описание инфраструктуры.
+                                li Варианты отделки. 
+                                li Варианты планировок.
+
+            // end pesentation
+
+            // begin apartmet
+            section#apartmet.apartmet
+                .apartmetSlider
+                    .apartmetSlider__item
+                        img(src="img/apartmet.jpg", alt="")
+                        //- .apartmet__descr
+                        //-     .apartmet__title На первом этаже комплекса
+                        //-     ol.apartmet__list
+                        //-         li Лобби-бар для встреч и работы
+                        //-         li Салон красоты
+                        //-         li Wellness-зона: СПА и массаж
+                        //-         li Консьерж и охрана
+                        //-         li Кофейня
+                        //-         li Фитнес-клуб премиум класса
+                        //-         li Услуги клининга апартаментов
+                        //-         li Услуги портных и химчистка
+                    .apartmetSlider__item
+                        img(src="img/apartmet.jpg", alt="")
+                .apartmet__descr
+                    .apartmet__title На первом этаже комплекса
+                    ol.apartmet__list
+                        li Лобби-бар для встреч и работы
+                        li Салон красоты
+                        li Wellness-зона: СПА и массаж
+                        li Консьерж и охрана
+                        li Кофейня
+                        li Услуги клининга апартаментов
+                        li Услуги портных и химчистка
+
+            // end apartmet
+
+            // begin planing
+            section#planing.planing
+                .container_center
+                    h2.section__title Планировки, в которых продуман каждый квадратный метр
+                    .section__sub Изучите примеры планировок нашего комплекса апартаментов
+
+                    .planing__content
+                        .planing__left
+                            .planing__tabs
+                                .planing__item.active(data-tabs="#planing1") Студия
+                                .planing__item(data-tabs="#planing2") 1-к апартаменты
+                                .planing__item(data-tabs="#planing3") 2-к апартаменты
+                                .planing__item(data-tabs="#planing4") Двухуровневые <br>апартменты
+                            .planing__sub 
+                                img(src="img/pointer.png", alt="")
+                                |Выберите интересующий вас тип апартаментов
+                        .planing__right
+                            .planing__pane.active#planing1
+                                .planing__img
+                                    img(src="img/planing.png", alt="")
+                                .planing__descr
+                                    .planing__props
+                                        .planing__label Площадь
+                                        .planing__count 38
+                                            small кв. метров
+                                    .planing__props
+                                        .planing__label В продаже
+                                        .planing__count 17
+                                            small апартаментов
+                            .planing__pane#planing2
+                                .planing__img
+                                    img(src="img/planing.png", alt="")
+                                .planing__descr
+                                    .planing__props
+                                        .planing__label Площадь
+                                        .planing__count 38
+                                            small кв. метров
+                                    .planing__props
+                                        .planing__label В продаже
+                                        .planing__count 17
+                                            small апартаментов
+                            .planing__pane#planing3
+                                .planing__img
+                                    img(src="img/planing.png", alt="")
+                                .planing__descr
+                                    .planing__props
+                                        .planing__label Площадь
+                                        .planing__count 38
+                                            small кв. метров
+                                    .planing__props
+                                        .planing__label В продаже
+                                        .planing__count 17
+                                            small апартаментов
+                            .planing__pane#planing4
+                                .planing__img
+                                    img(src="img/planing.png", alt="")
+                                .planing__descr
+                                    .planing__props
+                                        .planing__label Площадь
+                                        .planing__count 38
+                                            small кв. метров
+                                    .planing__props
+                                        .planing__label В продаже
+                                        .planing__count 17
+                                            small апартаментов
+
+            // end planing
+
+            // begin getPresent
+            section#getPresent.getPresent
+                .container_center
+                    .getPresent__content
+                        img.getPresent__book.mobile(src="img/getPresent-mob.png", alt="")
+                        img.getPresent__book.desktop(src="img/getPresent.png", alt="")
+                        img.getPresent__bird(src="img/bird.png", alt="")
+                        h2.section__title Получите полную презентацию комплекса апартаментов
+                        .section__sub со всеми планировками и ценами апартаментов
+
+                        form.getPresent__form.form(action="#")
+                            input(type="hidden" name="subject" value="Получить презентацию")
+                            .form__row
+                                input(type="text", name="email" placeholder="Введите ваш E-mail" required)
+                            .form__row
+                                input(type="tel", name="tel" placeholder="+7 (_ _ _) _ _ _ - _ _ - _ _" required)
+                            .form__row
+                                button.btn(type="submit") Получить презентацию
+                            .form__privacy
+                                label
+                                    input(type="checkbox" checked) 
+                                    span Я ознакомился с 
+                                        a(href="#" data-dismiss="modal" data-toggle="modal" data-target="#privacyModal") политикой конфиденциальности обработки персональных данных
+
+                .optionsSlider__wrap
+                    .optionsSlider
+                        .optionsSlider__slide
+                            img(src="img/optionsSlider.jpg", alt="")
+                        .optionsSlider__slide
+                            img(src="img/optionsSlider.jpg", alt="")
+                        .optionsSlider__slide
+                            img(src="img/optionsSlider.jpg", alt="")
+
+                    .optionsSlider__info
+                        .optionsSlider__title 3 варианта дизайна и отделки апартаментов
+                        .optionsSlider__text
+                            p Мы сдаем апартаменты с отделкой «под ключ», которая подойдет под любой дизайн-проект.
+                            p Вам лишь останется подобрать мебель, технику и предметы интерьера.
+                        .optionsSlider__bottom
+                            .optionsSlider__item(data-slide="0") Лофт
+                            .optionsSlider__item(data-slide="1") Тёмный модерн
+                            .optionsSlider__item(data-slide="2") Скандинавский стиль
+
+                    .optionsSlider__action
+                        button.btn(type="button" data-toggle="modal" data-target="#personalEvent" data-subject="Записаться на встречу") Записаться на личную встречу в офис продаж
+
+            // end getPresent
+
+            // begin infrastructure
+            section#infrastructure.infrastructure
+                .container_center
+                    .flag Инфраструктура
+                    h2.section__title Комплекс апартаментов «Архитектор» находится в самом сердце деловой части города Сочи
+
+                .infrastructure__tabs
+                    .infrastructure__item.active(data-search="school") Школы и детские сады
+                    .infrastructure__item(data-search="sport")
+                        span Фитнес и 
+                        |спортивные центры
+                    .infrastructure__item(data-search="market") Магазины и торговые центры
+                    .infrastructure__item(data-search="business") Для бизнеса
+                    .infrastructure__item(data-search="food") Рестораны
+                    .infrastructure__item(data-search="medical") Медицинские учреждения
+                .infrastructure__map
+                    #maps
+                    .infrastructure__action
+                        button.btn(type="button" data-toggle="modal" data-target="#upload" data-subject="Скачать презентацию") Получить подробную презентацию жилого комплекса
+
+            // end infrastructure
+
+            // begin developer
+            section#developer.developer
+                .container_center
+                    .developer__content
+                        h2.section__title Девелопер <br>проекта «Архитектор»
+                        img(src="img/developer.png", alt="")
+                        .developer__descr
+                            .developer__name Копничев Роман
+                            .developer__prof Архитектор комплекса апартаментов
+
+                        .developer__text
+                            p Апартаменты в АК АРХИТЕКТОР – один из лучших вариантов в качестве городской резиденции и надежная долгосрочная инвестиция.
+                            p Идея возникла из нескольких составляющих. Во-первых, в этой исторической части города сложно построить что-то новое, не убирая старые здания. Места для нового строительства почти нет. Поэтому модернизация и обновление – это лучшее решение. Во-вторых, здесь нет апартаментных комплексов премиум-класса, а запрос есть, место очень привлекательное. В-третьих, хотелось придать комплексу современное звучание и дать актуальное наполнение.
+                            p Провести внутреннее и внешнее обновление такого сложного составного комплекса  гораздо сложней, чем делать новый проект. Но это и интересно. Получился уникальный для Сочи объект, и я уверен, будущие хозяева апартаментов будут очень довольны своим выбором.
+
+
+
+                // begin .developerSlider
+                .developerSlider
+                    .developerSlider__item
+                        .developerSlider__descr
+                            .developerSlider__name Приватная парковая зона вокруг комплекса
+                            |Мы выделили 2 га площади под зоны для прогулок с детьми, отдыха и спорта
+                        img(src="img/developer-1.jpg", alt="")
+
+                        .developerSlider__marker
+                            .flag На фотографии 
+                            |детская площадка
+                    .developerSlider__item
+                        .developerSlider__descr
+                            .developerSlider__name Приватная парковая зона вокруг комплекса
+                            |Мы выделили 2 га площади под зоны для прогулок с детьми, отдыха и спорта
+                        img(src="img/developer-1.jpg", alt="")
+
+                        .developerSlider__marker
+                            .flag На фотографии 
+                            |детская площадка
+
+                // end .developerSlider
+
+            // end developer
+
+            // begin stage
+            section#stage.stage
+                .container_center
+                    h2.section__title На данном этапе мы <br>заканчиваем отделочные работы
+                    .stage__sub.mobile Сдача объекта и выдача ключей — август 2019
+                    .stage__img
+                    .stage__slider.mobile
+                        .stage__item
+                            img(src="img/stage-slide.jpg", alt="")
+                        .stage__item
+                            img(src="img/stage-slide.jpg", alt="")
+                        .stage__item
+                            img(src="img/stage-slide.jpg", alt="")
+
+            // end stage
+
+            // begin ipoteka
+            section#ipoteka.ipoteka
+                .container_center
+                    .ipoteka__top
+                        h2.section__title Выгодная ипотека <br>от банков-партнеров
+                        .ipoteka__logo
+                            img(src="img/alfa.png", alt="Альфа банк")
+                            img(src="img/absolut.png", alt="Абсолют банк")
+                .ipoteka__bottom
+                    .container_center
+                        .ipoteka__count
+                            .ipoteka__item
+                                .ipoteka__label Ставка от
+                                .ipoteka__number 9,3%
+                            .ipoteka__item
+                                .ipoteka__label Первый взнос от
+                                .ipoteka__number 15%
+                            .ipoteka__item
+                                .ipoteka__label Месячный платёж от
+                                .ipoteka__number 158 000 руб.
+                        .ipoteka__action
+                            img.desktop(src="img/ipoteka-men.png", alt="")
+                            img.mobile(src="img/ipoteka-men-mob.png", alt="")
+                            .ipoteka__title Получите консультацию <br>от нашего ипотечного брокера
+                            .ipoteka__btn
+                                button.btn(type="button" data-toggle="modal" data-target="#consultation" data-subject="Получить консультацию") Получить консультацию по ипотеке
+
+            // end ipoteka
+
+            // begin office
+            section#office.office
+                .container_center
+                    h2.section__title Приглашаем вас в наш офис продаж
+                    .section__sub При отделке нашего офиса используются только те материалы, которые используются <br>в отделке мест общего пользования самого комплекса
+                    .office__action
+                        button.btn(type="button" data-toggle="modal" data-target="#personalEvent" data-subject="Записаться на встречу") Записаться на встречу
+                            small с представителем комплекса «Архитектор»
+                        .office__sub Мы будем рады встретиться с вами и провести экскурсию на объект
+
+            // end office
+
+            // begin legal
+            section#legal.legal
+                .container_center
+                    h2.section__title Безупречная юридическая чистота объекта
+
+                    .legal__list
+                        .legal__item.legal__item_vertical
+                            .legal__img
+                                img(src="img/sert-1.jpg", alt="")
+                            .legal__name Выписка из ЕГРН на земельный участок
+                        .legal__item.legal__item_vertical
+                            .legal__img
+                                img(src="img/sert-2.jpg", alt="")
+                            .legal__name Договор аренды земельного участка
+                        .legal__item.legal__item_vertical
+                            .legal__img
+                                img(src="img/sert-1.jpg", alt="")
+                            .legal__name Выписка из ЕГРН на помещение
+                        .legal__item.legal__item_vertical
+                            .legal__img
+                                img(src="img/sert-2.jpg", alt="")
+                            .legal__name Решение о разделе
+                        .legal__item.legal__item_vertical
+                            .legal__img
+                                img(src="img/sert-1.jpg", alt="")
+                            .legal__name Технический план
+
+            // end legal
+
+            // begin contact
+            section#contact.contact
+                .container_center
+                    .contact__top
+                        h2.section__title Контактная информация
+                        .contact__acton
+                            .header__soc.soc
+                                a.icon.icon_whatsapp(href="#")
+                                a.icon.icon_telegram(href="#")
+                                a.icon.icon_viber(href="#")
+                            .header__contact
+                                .header__contactTitle Звонок по РФ бесплатный
+                                a.header__contactTel(href="tel: 8 800 333 25 33") 8 800 333 25 33
+                                a.header__callback(href="#" data-toggle="modal" data-target="#callback" data-subject="Перезвонить мне") Перезвонить вам?
+                            img(src="img/iPhone.png", alt="")
+
+                .contact__bottom
+                    .map__wrap
+                        #map
+                    .contact__info
+                        .contact__row
+                            .contact__icon
+                                img(src="img/place.png", alt="")
+                            .contact__label Адрес объекта
+                            .contact__props Россия, г.Сочи, <br>ул.Конституции СССР, д.18
+                        .contact__row
+                            .contact__icon
+                                img(src="img/rub.png", alt="")
+                            .contact__label Адрес офиса продаж
+                            .contact__props г.Сочи, ул.Конституции СССР, д.18
+                        .contact__row
+                            .contact__icon
+                                img(src="img/mail.png", alt="")
+                            .contact__label Есть вопрос? Напишите нам по адресу
+                            .contact__props 
+                                a(href="mailto: info@architector.ru") info@architector.ru
+                        .contact__row
+                            .contact__icon
+                                img(src="img/data.png", alt="")
+                            .contact__label График работы
+                            .contact__props пн-пт  10:00  – 18:00
+                            .contact__props сб-вс  10:00  – 15:00
+
+
+
+            // end contact
 
         footer.footer
             .container_center
-                p
-                | &copy; 2016 |
-                i.fa.fa-github(aria-hidden='true') &nbsp;
-                a(href='#') View Source
+                .footer__content
+                    .footer__left
+                        a.logo(href="/")
+                            img(src="img/logo.png", alt="alt")
+                            span.logo__descr Официальный сайт комплекса апартаментов «Архитектор»
+                    .footer__center
+                        a(href="#" data-toggle="modal" data-target="#privacyModal") Политика конфиденциальности
+                        //- a(href="#") Обработка персональных данных
+                    .footer__right
+                        a.develop(href="")
+                            span.develop__label Разработка сайта
+                            span.develop__img
+                                img(src="img/dlogo.png", alt="")
+                                //- img(src="img/dlogo.png", alt="")
+                        .footer__copy © 2019 Company Inc
+
+
+        // Button trigger modal callback
+        //- button(class="btn btn-primary btn-lg" data-toggle="modal" data-target="#callback") Click to open modal
+        // Begin Modal callback
+        .modal.fade.callback#callback
+            .modal-dialog
+                .modal-left
+                    img(src="img/callback.png", alt="")
+                .modal-content
+                    a(href="#" class="modal-close" data-dismiss="modal")
+                    .modal__title Оставьте свои контактные данные,
+                    .modal__sub и наш менеджер свяжется с вами в течение 10 минут
+                    .modal-body 
+                        form.form(action="send.php" method="method")
+                            input(type="hidden" name="subject" value="")
+                            .form__row
+                                input(type="text", name="name" placeholder="Введите ваше Имя" required)
+                            .form__row
+                                input(type="text", name="email" placeholder="Введите ваш E-mail" required)
+                            .form__row
+                                input(type="tel", name="tel" placeholder="" required)
+                            .form__row
+                                button.btn(type="submit") Получить презентацию
+                            .form__privacy
+                                label
+                                    input(type="checkbox" checked) 
+                                    span Я ознакомился с 
+                                        a(href="#" data-dismiss="modal" data-toggle="modal" data-target="#privacyModal") политикой конфиденциальности обработки персональных данных
+        // End modal callback
+
+        // Button trigger modal upload
+        //- button(class="btn btn-primary btn-lg" data-toggle="modal" data-target="#upload") Click to open modal
+        // Begin Modal upload
+        .modal.fade.upload#upload
+            .modal-dialog
+                .modal-left
+                    img(src="img/catalog.png", alt="")
+                .modal-content
+                    a(href="#" class="modal-close" data-dismiss="modal")
+                    .modal__title Оставьте свои контактные данные,
+                    .modal__sub и наш менеджер свяжется с вами в течение 10 минут
+                    .modal-body 
+                        form.form(action="send.php" method="method")
+                            input(type="hidden" name="subject" value="")
+                            .form__row
+                                input(type="text", name="name" placeholder="Введите ваше Имя" required)
+                            .form__row
+                                input(type="text", name="email" placeholder="Введите ваш E-mail" required)
+                            .form__row
+                                input(type="tel", name="tel" placeholder="" required)
+                            .form__row
+                                button.btn(type="submit") Скачать презентацию
+                            .form__privacy
+                                label
+                                    input(type="checkbox" checked) 
+                                    span Я ознакомился с 
+                                        a(href="#" data-dismiss="modal" data-toggle="modal" data-target="#privacyModal") политикой конфиденциальности обработки персональных данных
+        // End modal upload
+
+        // Button trigger modal personalEvent
+        //- button(class="btn btn-primary btn-lg" data-toggle="modal" data-target="#personalEvent") Click to open modal
+        // Begin Modal personalEvent
+        .modal.fade.personalEvent#personalEvent
+            .modal-dialog
+                .modal-left
+                    img(src="img/personal.png", alt="")
+                .modal-content
+                    a(href="#" class="modal-close" data-dismiss="modal")
+                    .modal__title Оставьте свои контактные данные,
+                    .modal__sub и наш менеджер свяжется с вами в течение 10 минут
+                    .modal-body 
+                        form.form(action="send.php" method="method")
+                            input(type="hidden" name="subject" value="")
+                            .form__row
+                                input(type="text", name="name" placeholder="Введите ваше Имя" required)
+                            .form__row
+                                input(type="text", name="email" placeholder="Введите ваш E-mail" required)
+                            .form__row
+                                input(type="tel", name="tel" placeholder="" required)
+                            .form__row
+                                button.btn(type="submit") Записаться на встречу
+                            .form__privacy
+                                label
+                                    input(type="checkbox" checked) 
+                                    span Я ознакомился с 
+                                        a(href="#" data-dismiss="modal" data-toggle="modal" data-target="#privacyModal") политикой конфиденциальности обработки персональных данных
+        // End modal personalEvent
+
+        // Button trigger modal consultation
+        //- button(class="btn btn-primary btn-lg" data-toggle="modal" data-target="#consultation") Click to open modal
+        // Begin Modal consultation
+        .modal.fade.consultation#consultation
+            .modal-dialog
+                .modal-left
+                    img(src="img/personal.png", alt="")
+                .modal-content
+                    a(href="#" class="modal-close" data-dismiss="modal")
+                    .modal__title Оставьте свои контактные данные,
+                    .modal__sub и наш менеджер свяжется с вами в течение 10 минут
+                    .modal-body 
+                        form.form(action="send.php" method="method")
+                            input(type="hidden" name="subject" value="")
+                            .form__row
+                                input(type="text", name="name" placeholder="Введите ваше Имя" required)
+                            .form__row
+                                input(type="text", name="email" placeholder="Введите ваш E-mail" required)
+                            .form__row
+                                input(type="tel", name="tel" placeholder="" required)
+                            .form__row
+                                button.btn(type="submit") Получить консультацию
+                            .form__privacy
+                                label
+                                    input(type="checkbox" checked) 
+                                    span Я ознакомился с 
+                                        a(href="#" data-dismiss="modal" data-toggle="modal" data-target="#privacyModal") политикой конфиденциальности обработки персональных данных
+        // End modal consultation
+
+        //- // Button trigger modal privacyModal
+        //- button(class="btn btn-primary btn-lg" data-toggle="modal" data-target="#privacyModal") Click to open modal
+        // Begin Modal privacyModal
+        .modal.fade.privacyModal#privacyModal
+            .modal-dialog
+                .modal-content
+                    a(href="#" class="modal-close" data-dismiss="modal")
+
+                    include privacy.pug
+
+
+        // End modal privacyModal
+
+        //- // Button trigger modal lightbox
+        //- button(class="btn btn-primary btn-lg" data-toggle="modal" data-target="#lightbox") Click to open modal
+        // Begin Modal lightbox
+        .modal.fade.lightbox#lightbox
+            .modal-dialog
+                a(href="#" class="modal-close" data-dismiss="modal")
+                .modal-content
+        // End modal lightbox
+
+
+        script(src="js/jquery.js")
+        script(src="vendor/slick-carousel/slick/slick.min.js")
+        script(src="js/modal.js")
+        <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+        script(src="js/intlTelInput.min.js")
+        script(src="vendor/inputmask/dist/inputmask/inputmask.js")
+        script(src="vendor/inputmask/dist/inputmask/jquery.inputmask.js")
+        script(src="js/utils.js")
+        script(src="js/jquery.fancybox.min.js")
+        script(src="js/function.js")
+
+        script(src="https://api-maps.yandex.ru/2.1/?lang=ru-RU&apikey=6c6fa8d9-2f9d-4894-b84d-6491a3c1b9ae" type="text/javascript")
+        script(src="mapData/all.js")
+        script(src="js/maps.js")

@@ -1,0 +1,73 @@
+block variables
+    -var version = '1';
+
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+
+        link(rel="stylesheet", type="text/css", href="css/style.css?"+version+"")
+    body
+        header.header
+            .header__content
+                .header__left
+                    a.logo(href="/")
+                        img(src="img/logo.png", alt="alt")
+                        span.logo__descr Официальный сайт комплекса апартаментов «Архитектор»
+                .header__right
+                    .header__build
+                        .flag Сдача объекта 
+                        .header__buildDate  декабрь 2020 года
+                    .header__soc.soc
+                        a.icon.icon_whatsapp(href="#")
+                        a.icon.icon_telegram(href="#")
+                        a.icon.icon_viber(href="#")
+                    .header__contact
+                        .header__contactTitle Звонок по РФ бесплатный
+                        a.header__contactTel(href="tel: 8 800 333 25 33")
+                            span 8 800 333 25 33
+                            i
+
+
+        main.main_content
+            // begin firstScreen
+            section.firstScreen.success
+                .container_center
+                    .success__content
+                        h2.section__title Спасибо за заявку
+                        .section__sub Наш менеджер свяжется с вами в течение 10 минут
+
+            // end firstScreen
+
+
+        footer.footer.footer_success
+            .container_center
+                .footer__content
+                    .footer__left
+                        a.logo(href="/")
+                            img(src="img/logo.png", alt="alt")
+                            span.logo__descr Официальный сайт комплекса апартаментов «Архитектор»
+                    .footer__center
+                        a(href="#" data-toggle="modal" data-target="#privacyModal") Политика конфиденциальности
+                        //- a(href="#") Обработка персональных данных
+                    .footer__right
+                        a.develop(href="")
+                            span.develop__label Разработка сайта
+                            span.develop__img
+                                img(src="img/dlogo.png", alt="")
+                                //- img(src="img/dlogo.png", alt="")
+                        .footer__copy © 2019 Company Inc
+
+        // Begin Modal privacyModal
+        .modal.fade.privacyModal#privacyModal
+            .modal-dialog
+                .modal-content
+                    a(href="#" class="modal-close" data-dismiss="modal")
+
+                    include privacy.pug
+
+
+        // End modal privacyModal

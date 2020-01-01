@@ -1,0 +1,30 @@
+.logo {
+    color: $color_withe;
+    text-decoration: none;
+    max-width: 14.5em;
+    text-align: center;
+    display: block;
+
+    img {
+        display: block;
+        margin-bottom: 0.6em;
+    }
+
+    &__descr {
+        font-size: 0.9em;
+    }
+
+    @media (min-width: 768px) {
+        max-width: 15.1em;
+
+        img {
+            display: block;
+            margin-bottom: 1.8em;
+        }
+
+        &__descr {
+            font-size: 0.95em;
+        }
+    }
+
+}

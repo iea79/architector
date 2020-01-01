@@ -1,0 +1,63 @@
+.collage {
+    margin: 1.5em 0.7em 3.2em;
+    display: flex;
+    position: relative;
+
+    @media (min-width: 768px) {
+        margin: 3.2em 2.2em 3.2em 3.2em;
+    }
+
+    @media (max-width: 767px) {
+        display: none;
+    }
+
+    &_mob {
+        display: block;
+
+        @media (min-width: 768px) {
+            display: none;
+        }
+
+        .slick {
+            &-list {
+                overflow: hidden;
+                max-width: none;
+            }
+        }
+    }
+
+    &__item {
+        @media (min-width: 768px) {
+            display: flex;
+            flex-direction: column;
+
+            img {
+                border: 0.1em solid #101010;
+                // display: block;
+                max-height: 22.4em;
+                flex-grow: 1;
+                transform: scale(1);
+                transition: transform 0.3s;
+                position: relative;
+
+                &:hover {
+                    transform: scale(1.15);
+                    z-index: 1;
+                }
+            }
+
+            &:nth-child(3) {
+                // width: 20%;
+                img {
+                    max-height: 11.2em;
+                }
+            }
+
+        }
+
+        img {
+            display: block;
+        }
+    }
+
+}

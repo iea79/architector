@@ -1,0 +1,72 @@
+.slick {
+    &-slide {
+        outline: 0;
+        margin: 0 0.15em;
+        opacity: 0.5;
+        transition: opacity 0.3s;
+        cursor: pointer;
+    }
+
+    &-track {}
+
+    &-list {
+        margin: auto 1em;
+
+        @media (min-width: 768px) {
+            overflow: inherit;
+            max-width: 87.3%;
+            margin: auto;
+        }
+    }
+
+    &-current {
+        opacity: 1;
+        cursor: default;
+    }
+
+    &-arrow {
+        position: absolute;
+        border: none;
+        background-color: transparent;
+        top: 50%;
+        cursor: pointer;
+        transition: color 0.3s;
+        color: #ffffff;
+        margin-top: -1.45em;
+        font-size: 3.4em;
+        display: block;
+        z-index: 10;
+
+        &:hover {
+            color: #f6cb54;
+        }
+
+        &:before {
+            font-family: 'icomoon' !important;
+        }
+
+        &.icon_next {
+            right: 5.3em;
+
+            &:before {
+                content: "\e903";
+            }
+        }
+
+        &.icon_prev {
+            left: 5.3em;
+
+            &:before {
+                content: "\e904";
+            }
+        }
+    }
+
+    &-dots {
+        li {
+            &.slick-active {}
+
+            button {}
+        }
+    }
+}

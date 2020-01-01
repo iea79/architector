@@ -1,18 +1,221 @@
 /* Header
  ----------------------------------------------------------------------------- */
 .header {
-	background-color: #ccc;
-	padding: 10px 0;
-	@extend %clear_a;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 10;
 
 	&__content {
-		max-width: $container_width;
-		padding-left: 15px;
-		padding-right: 15px;
-		margin: auto;
 		display: flex;
-		justify-content: space-between;
+
+		@media (min-width: 768px) {
+			justify-content: space-between;
+			align-items: flex-start;
+			max-width: 78em;
+			padding: 2.2em 1em;
+			margin: auto;
+		}
+
+		@media (max-width: 767px) {
+			flex-direction: column;
+			align-items: center;
+			padding-top: 3.6em;
+		}
+
 	}
+
+	&__left {
+		flex: none;
+
+		@media (min-width: 768px) {
+			padding-left: 1.8em;
+			padding-right: 12.1em;
+		}
+	}
+
+	&__right {
+		// flex: none;
+		padding-top: 0.7em;
+		display: flex;
+		align-items: center;
+		flex-grow: 1;
+		justify-content: space-between;
+		align-items: center;
+
+		@media (min-width: 768px) {}
+
+		@media (max-width: 767px) {
+			flex-direction: column;
+		}
+	}
+
+	&__build {
+		margin-top: 0;
+		display: flex;
+		align-items: center;
+
+		&Date {
+			font-size: 0.7em;
+
+			@media (min-width: 768px) {
+				font-size: 0.9em;
+			}
+		}
+
+		@media (min-width: 768px) {
+			margin-top: 0.1em;
+			margin-right: 1.4em;
+
+		}
+
+		@media (max-width: 767px) {
+			background: url("../img/build-mob.png") 0 0 no-repeat;
+			background-size: 100% 100%;
+			padding: 0.3em 0.7em;
+			letter-spacing: 0.1em;
+			font-weight: 600;
+			font-size: 1.2em;
+		}
+	}
+
+	&__soc {
+		display: flex;
+
+		.icon {
+			width: 2.1em;
+			height: 2.1em;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: $color_withe;
+			border-radius: 50%;
+			margin: 0.2em;
+			flex: none;
+			text-decoration: none;
+			transition: background-color color 0.3s;
+
+			@media (min-width: 768px) {}
+
+			@media (max-width: 767px) {
+				font-size: 1.2em;
+			}
+
+			&:before {
+				font-size: 0.95em;
+				line-height: 1;
+			}
+
+			&_telegram {
+				background-color: #4cc2ff;
+			}
+
+			&_viber {
+				background-color: #7b519b;
+			}
+
+			&_whatsapp {
+				background-color: #25e47b;
+			}
+
+			&:hover {
+				color: #101010;
+
+				&.icon {
+					&_telegram {
+						background-color: darken(#4cc2ff, 20%);
+						color: $color_withe;
+					}
+
+					&_viber {
+						background-color: saturate(#7b519b, 20%);
+					}
+
+					&_whatsapp {
+						background-color: #f6cb54;
+					}
+				}
+
+			}
+		}
+
+		@media (max-width: 767px) {
+			position: absolute;
+			left: 0.6em;
+			top: 0.6em;
+		}
+	}
+
+	&__contact {
+		text-align: right;
+
+		&Title {
+			@media (min-width: 768px) {
+				font-size: 0.95em;
+				margin-bottom: 0.4em;
+			}
+
+			@media (max-width: 767px) {
+				display: none;
+			}
+		}
+
+		&Tel {
+			display: block;
+			font-size: 1.85em;
+			// border-bottom: 0.1 solid $color_withe;
+			margin-bottom: -0.1em;
+			font-family: $num_font_family;
+			font-weight: 600;
+
+		}
+
+		a {
+			color: $color_withe;
+			text-decoration: none;
+			@media (min-width: 768px) {
+				i {
+					display: none;
+				}
+			}
+
+			@media (max-width: 767px) {
+				span {
+					display: none;
+				}
+
+				i {
+					width: 1.4em;
+					height: 1.4em;
+					background: url("../img/call.png") 0 0 no-repeat;
+					background-size: 100%;
+					display: block;
+				}
+			}
+		}
+
+		@media (max-width: 767px) {
+			position: absolute;
+			top: 0.7em;
+			right: 0.8em;
+			// width: 100%;
+			// display: flex;
+			// justify-content: space-between;
+		}
+	}
+
+	&__callback {
+		font-size: 0.93em;
+
+		&:hover {
+			color: #f6cb54;
+		}
+		@media (max-width: 767px) {
+			display: none;
+		}
+	}
+
 }
 
 // stiky menu

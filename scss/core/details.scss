@@ -1,0 +1,112 @@
+.details {
+    background: url("../img/details-bg.png") bottom 3.7em right -44.7em no-repeat;
+    background-size: 379%;
+    margin-top: -3.1em;
+
+    @media (min-width: 768px) {
+        margin-top: -4.7em;
+        background: url("../img/details-bg.png") top 3.7em right -2.7em no-repeat;
+        background-size: 135%;
+    }
+
+    @media (max-width: 767px) {
+        position: relative;
+        padding-bottom: 11em;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(#101010, 0.6);
+        }
+    }
+
+    .section {
+        &__title {
+            @media (min-width: 768px) {
+                padding-left: 0.4em;
+            }
+        }
+
+    }
+
+    &__top {
+
+        @media (min-width: 768px) {
+            padding-left: 26em;
+        }
+
+        @media (max-width: 767px) {
+            // display: flex;
+            // flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    &__thumbs {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1em 0 3.2em;
+        margin-bottom: 3.2em;
+
+        @media (min-width: 768px) {
+            margin-right: -1.4em;
+            margin-bottom: 12.2em;
+            padding: 3.1em 2.6em 3.2em;
+            background: url("../img/details-info.png") 0 0 no-repeat;
+            background-size: 100% 100%;
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        width: 48.4%;
+        margin-bottom: 0.8em;
+        margin-right: 1.6%;
+        // padding-right: 0.6em;
+
+        @media (min-width: 768px) {
+            width: 31.7%;
+
+            &:nth-child(3n+3) {
+                padding-left: 1.4em;
+            }
+
+        }
+    }
+
+    &__img {
+        width: 29%;
+        flex: none;
+        margin-right: 0.6em;
+        text-align: center;
+
+        @media (min-width: 768px) {
+            margin-right: 0.6em;
+            width: 25%;
+        }
+    }
+
+    &__name {
+        padding-right: 0.7em;
+        font-size: 0.95em;
+        line-height: 1.5;
+        text-align: left;
+
+        @media (min-width: 768px) {
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 767px) {
+            // color: #aaa79a;
+        }
+    }
+
+    .container_center {
+        position: relative;
+    }
+}
